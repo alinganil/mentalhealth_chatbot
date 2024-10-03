@@ -13,7 +13,7 @@ sendButton.addEventListener('click', () => {
 
 function addMessage(sender, message) {
     const messageElement = document.createElement('div');
-    messageElement.textContent = (sender === 'user' ? 'You: ' : 'Bot: ') + message;
+    messageElement.textContent = (sender === 'user' ? 'You: ' : 'Friend: ') + message;
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
@@ -24,5 +24,5 @@ function getChatbotResponse(userMessage) {
         response = "I'm sorry to hear you're feeling this way. Want to talk about what's making you sad?";
     }
     // Add more keyword-based responses as needed.
-    addMessage('bot', response);
+    addMessage('Friend', response);
 }
