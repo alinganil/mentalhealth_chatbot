@@ -23,6 +23,12 @@ function getChatbotResponse(userMessage) {
     if (userMessage.toLowerCase().includes('sad')) {
         response = "I'm sorry to hear you're feeling this way. Want to talk about what's making you sad?";
     }
-    // Add more keyword-based responses as needed.
+    if (userMessage.toLowerCase().includes('tired')) {
+        response = "I'm sorry to hear that; well, you got this. Just push through! :)";
+    }
+     if (userMessage.toLowerCase().includes('tired')) {
+        response = "I'm sorry to hear that; well, you got this. Just push through! :)";
+    }
+                                
     addMessage('Friend', response);
 }
