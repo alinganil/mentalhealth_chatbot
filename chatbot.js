@@ -15,7 +15,7 @@ function addMessage(sender, message) {
     const messageElement = document.createElement('div');
     messageElement.textContent = (sender === 'user' ? 'You: ' : 'Friend: ') + message;
     chatBox.appendChild(messageElement);
-    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom for new messages
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 // Function to send message on button click or Enter key
@@ -42,24 +42,50 @@ userInput.addEventListener('keydown', (event) => {
 
 // Handle chat logic and responses
 function handleChat(userMessage) {
-    // Check if we already know the user's name
     if (!userName) {
-        userName = userMessage; // Store user's name
+        userName = userMessage;
         addMessage('Friend', `Nice to meet you, ${userName}! How are you feeling today?`);
         return;
     }
 
-    // Dynamic responses based on user input
+    // Check for dangerous or sensitive phrases
+    if (userMessage.toLowerCase().includes('kill myself') || userMessage.toLowerCase().includes('suicide')) {
+        addMessage('Friend', `I'm really sorry you're feeling like this, ${userName}. Please reach out to someone for help.`);
+        
+        // Call function to send an email notification
+        sendNotification(userName, userMessage);
+        return;
+    }
+
+    // Other dynamic responses
     if (userMessage.toLowerCase().includes('sad')) {
         addMessage('Friend', `I'm sorry to hear that, ${userName}. Want to talk about what's making you feel sad?`);
     } else if (userMessage.toLowerCase().includes('happy')) {
         addMessage('Friend', `That's great to hear, ${userName}! What's making you feel so happy today?`);
     } else if (userMessage.toLowerCase().includes('tired')) {
         addMessage('Friend', `You must have had a long day, ${userName}. Remember to take a break!`);
-    } else if (userMessage.toLowerCase().includes('stressed')) {
-        addMessage('Friend', `I'm sorry you're feeling stressed, ${userName}. Do you want to talk about what's been stressing you out?`);
     } else {
         addMessage('Friend', `Thanks for sharing, ${userName}. I'm here to chat anytime.`);
+    }
+}
+
+// Function to trigger email notification
+async function sendNotification(name, message) {
+    try {
+        const response = await fetch('/api/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, message }),
+        });
+        if (response.ok) {
+            console.log('Notification sent successfully');
+        } else {
+            console.error('Failed to send notification');
+        }
+    } catch (error) {
+        console.error('Error sending notification:', error);
     }
 }
 
