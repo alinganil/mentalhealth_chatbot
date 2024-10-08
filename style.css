@@ -1,11 +1,20 @@
 body {
     font-family: 'Poppins', sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
     margin: 0;
     background: linear-gradient(135deg, #89CFF0, #A569BD);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: fadeIn 1.5s ease;
 }
 
 #chat-container {
@@ -16,6 +25,7 @@ body {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border: 2px solid #A569BD;
+    animation: slideUp 1s ease;
 }
 
 #chat-box {
@@ -27,14 +37,23 @@ body {
     border-radius: 8px;
 }
 
+#input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 #user-input {
-    width: calc(100% - 80px);
+    width: 85%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
+    font-family: 'Poppins', sans-serif; /* Match the font */
 }
 
 #send-button {
+    width: 12%;
     padding: 10px;
     cursor: pointer;
     background-color: #A569BD;
@@ -42,10 +61,45 @@ body {
     border: none;
     border-radius: 5px;
     font-weight: bold;
-    margin-left: 10px;
     transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif; /* Match the font */
 }
 
 #send-button:hover {
     background-color: #7D3C98;
+}
+
+/* Animation for chat messages */
+.message {
+    opacity: 0;
+    animation: fadeInMessage 0.6s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInMessage {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
