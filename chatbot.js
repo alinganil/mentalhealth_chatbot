@@ -15,16 +15,28 @@ function addMessage(sender, message) {
     const messageElement = document.createElement('div');
     messageElement.textContent = (sender === 'user' ? 'You: ' : 'Friend: ') + message;
     chatBox.appendChild(messageElement);
-    chatBox.scrollTop = chatBox.scrollHeight;
+    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom for new messages
+}
+
+// Function to send message on button click or Enter key
+function sendMessage() {
+    const message = userInput.value.trim();
+    if (message) {
+        addMessage('user', message); // Add user's message to chatbox
+        userInput.value = ''; // Clear input field
+        handleChat(message); // Handle chatbot response
+    }
 }
 
 // Event listener for send button
 sendButton.addEventListener('click', () => {
-    const message = userInput.value.trim();
-    if (message) {
-        addMessage('user', message);
-        userInput.value = '';
-        handleChat(message);
+    sendMessage(); // Call sendMessage when the send button is clicked
+});
+
+// Event listener for Enter key press
+userInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        sendMessage(); // Call sendMessage when the Enter key is pressed
     }
 });
 
