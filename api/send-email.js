@@ -17,7 +17,7 @@ export default async function handler(req, res) {
         // Define email options
         const mailOptions = {
             from: process.env.EMAIL_USER,
-            to: 'alert@example.com',  // Replace this with the email where you want to receive notifications
+            to: 'axg21n@acu.edu',  // Replace this with the email where you want to receive notifications
             subject: `Urgent: ${name} mentioned harmful thoughts`,
             text: `${name} said: "${message}". Please check in with them.`,
         };
