@@ -4,24 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Health Chatbot</title>
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> <!-- Linking the external CSS file -->
+    <!-- Google Font for modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Title of the page -->
-    <h1>Welcome to the Mental Health Chatbot</h1>
+    <!-- Main Hero Section -->
+    <section id="hero">
+        <div class="hero-text">
+            <h1>Welcome to Mental Health Chatbot</h1>
+            <p>Your mental wellness companion</p>
+        </div>
+        <div class="hero-image">
+            <img src="hero-screenshot.png" alt="Screenshot of the chatbot" />
+        </div>
+    </section>
 
-    <div id="chat-container">
+    <!-- Chatbot Section -->
+    <section id="chat-container">
         <div id="chat-box"></div>
-        <!-- Container for input and send button -->
         <div id="input-container">
             <input type="text" id="user-input" placeholder="Type your message..." />
             <button id="send-button">Send</button>
         </div>
-    </div>
+    </section>
 
-<script src="chatbot.js"></script>
+    <!-- Script for chat functionality -->
+    <script src="chatbot.js"></script>
 </body>
 </html>
