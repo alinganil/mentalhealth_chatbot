@@ -4,16 +4,26 @@ const sendButton = document.getElementById('send-button');
 let userName = ''; // Variable to store the user's name
 
 // Event listener for send button
-sendButton.addEventListener('click', () => {
-    const message = userInput.value.trim();
-    if (message) {
-        addMessage('user', message);
-        userInput.value = '';
-        handleChat(message);
+sendButton.addEventListener('click', sendMessage);
+
+// Event listener for Enter key press
+userInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        sendMessage(); // Trigger send message function on Enter key press
     }
 });
 
-// Add message to the chatbox
+// Function to send message
+function sendMessage() {
+    const message = userInput.value.trim(); // Get the message from input
+    if (message) {
+        addMessage('user', message); // Add user's message to the chatbox
+        userInput.value = ''; // Clear the input field
+        handleChat(message);  // Call function to handle chatbot response
+    }
+}
+
+// Function to add a message to the chatbox
 function addMessage(sender, message) {
     const messageElement = document.createElement('div');
     messageElement.textContent = (sender === 'user' ? 'You: ' : 'Friend: ') + message;
@@ -24,19 +34,20 @@ function addMessage(sender, message) {
 // Handle chat logic and email triggering
 function handleChat(userMessage) {
     if (!userName) {
-        userName = userMessage;
+        // If userName is not set, it means this is the first interaction
+        userName = userMessage; // Set the user's name
         addMessage('Friend', `Nice to meet you, ${userName}! How are you feeling today?`);
         return;
     }
 
-    // Check for sensitive phrases
+    // Check for sensitive phrases and send an email notification if needed
     if (userMessage.toLowerCase().includes('kill myself') || userMessage.toLowerCase().includes('suicide')) {
         addMessage('Friend', `I'm really sorry you're feeling like this, ${userName}. Please reach out to someone for help.`);
-        sendNotification(userName, userMessage);
+        sendNotification(userName, userMessage); // Send email notification
         return;
     }
 
-    // Dynamic responses
+    // Dynamic responses based on user input
     if (userMessage.toLowerCase().includes('sad')) {
         addMessage('Friend', `I'm sorry to hear that you're feeling sad. Want to talk about it?`);
     } else if (userMessage.toLowerCase().includes('happy')) {
@@ -67,3 +78,8 @@ async function sendNotification(name, message) {
         console.error('Error sending notification:', error);
     }
 }
+
+// Start the chatbot by asking for the user's name initially
+document.addEventListener('DOMContentLoaded', () => {
+    addMessage('Friend', "Hello! What's your name?");
+});
