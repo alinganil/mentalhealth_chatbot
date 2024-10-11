@@ -7,13 +7,14 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f6f9;
+    background-color: #121212;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #89CFF0, #A569BD); /* Cool gradient background */
+    background: linear-gradient(135deg, #232526, #414345); /* Dark gradient background */
+    color: white;
 }
 
 /* Smooth Scroll */
@@ -36,10 +37,15 @@ html {
 .hero-text h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    background: linear-gradient(to right, #007BFF, #A569BD, #89CFF0); /* Gradient font */
-    -webkit-background-clip: text;
     color: transparent;
-    animation: textGlow 3s ease-in-out infinite alternate;
+    background: linear-gradient(90deg, #00dbde, #fc00ff); /* Cool gradient text */
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: typing 3s steps(40, end), textGlow 3s ease-in-out infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #00dbde;
+    width: 0;
 }
 
 .hero-text p {
@@ -49,29 +55,39 @@ html {
     animation: fadeInUp 1.5s ease-in-out;
 }
 
+/* Typing animation */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
 /* Chatbot Section */
 #chat-container {
     width: 60%;
     max-width: 600px;
-    background-color: #ffffff;
+    background-color: #232526;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
     animation: slideUp 1s ease;
 }
 
 #chat-box {
     height: 400px;
     overflow-y: auto;
-    border: 1px solid #ddd;
+    border: 1px solid #555;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 8px;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #1b1b1b;
+    color: #eee;
     font-size: 1rem;
     font-family: 'Poppins', sans-serif;
-    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 #input-container {
@@ -83,15 +99,17 @@ html {
     width: 85%;
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid #555;
     font-family: 'Poppins', sans-serif;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #2d2d2d;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s ease-in-out;
 }
 
 #user-input:focus {
     box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.3);
-    border-color: #007BFF;
+    border-color: #00dbde;
     outline: none;
 }
 
@@ -99,7 +117,7 @@ html {
     width: 12%;
     padding: 10px;
     cursor: pointer;
-    background-color: #007BFF;
+    background-color: #00dbde;
     color: white;
     border: none;
     border-radius: 8px;
@@ -109,12 +127,12 @@ html {
 }
 
 #send-button:hover {
-    background-color: #0056b3;
+    background-color: #00979d;
     box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.5);
 }
 
 #send-button:active {
-    background-color: #004085;
+    background-color: #00757a;
     transform: scale(0.98);
 }
 
@@ -134,16 +152,17 @@ html {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Text Glow Animation */
 @keyframes textGlow {
     from {
-        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4),
-                     0px 0px 20px rgba(255, 255, 255, 0.6),
-                     0px 0px 30px rgba(255, 255, 255, 0.8);
+        text-shadow: 0px 0px 10px rgba(0, 219, 222, 0.4),
+                     0px 0px 20px rgba(252, 0, 255, 0.6),
+                     0px 0px 30px rgba(252, 0, 255, 0.8);
     }
     to {
-        text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8),
-                     0px 0px 30px rgba(255, 255, 255, 1),
-                     0px 0px 40px rgba(255, 255, 255, 1);
+        text-shadow: 0px 0px 20px rgba(0, 219, 222, 0.8),
+                     0px 0px 30px rgba(252, 0, 255, 1),
+                     0px 0px 40px rgba(252, 0, 255, 1);
     }
 }
 
@@ -153,10 +172,10 @@ html {
 }
 
 #chat-box::-webkit-scrollbar-thumb {
-    background-color: #007BFF;
+    background-color: #00dbde;
     border-radius: 10px;
 }
 
 #chat-box::-webkit-scrollbar-thumb:hover {
-    background-color: #0056b3;
+    background-color: #00979d;
 }
