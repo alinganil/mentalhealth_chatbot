@@ -38,13 +38,13 @@ html {
     font-size: 3.5rem;
     font-weight: 700;
     color: transparent;
-    background: linear-gradient(90deg, #00dbde, #fc00ff); /* Cool gradient text */
+    background: linear-gradient(90deg, #0047ab, #fcb900); /* Updated gradient: Blue and Gold */
     background-clip: text;
     -webkit-background-clip: text;
-    animation: typing 3s steps(40, end), textGlow 3s ease-in-out infinite alternate;
+    animation: typing 3s steps(40, end), textGlow 5s ease-in-out infinite alternate; /* Slowed down glow effect */
     white-space: nowrap;
     overflow: hidden;
-    border-right: 3px solid #00dbde;
+    border-right: 3px solid #0047ab;
     width: 0;
 }
 
@@ -109,7 +109,7 @@ html {
 
 #user-input:focus {
     box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.3);
-    border-color: #00dbde;
+    border-color: #0047ab;
     outline: none;
 }
 
@@ -117,7 +117,7 @@ html {
     width: 12%;
     padding: 10px;
     cursor: pointer;
-    background-color: #00dbde;
+    background-color: #0047ab;
     color: white;
     border: none;
     border-radius: 8px;
@@ -127,12 +127,12 @@ html {
 }
 
 #send-button:hover {
-    background-color: #00979d;
+    background-color: #00327e;
     box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.5);
 }
 
 #send-button:active {
-    background-color: #00757a;
+    background-color: #002366;
     transform: scale(0.98);
 }
 
@@ -155,14 +155,14 @@ html {
 /* Text Glow Animation */
 @keyframes textGlow {
     from {
-        text-shadow: 0px 0px 10px rgba(0, 219, 222, 0.4),
-                     0px 0px 20px rgba(252, 0, 255, 0.6),
-                     0px 0px 30px rgba(252, 0, 255, 0.8);
+        text-shadow: 0px 0px 10px rgba(0, 71, 171, 0.4),
+                     0px 0px 20px rgba(252, 185, 0, 0.6),
+                     0px 0px 30px rgba(252, 185, 0, 0.8);
     }
     to {
-        text-shadow: 0px 0px 20px rgba(0, 219, 222, 0.8),
-                     0px 0px 30px rgba(252, 0, 255, 1),
-                     0px 0px 40px rgba(252, 0, 255, 1);
+        text-shadow: 0px 0px 20px rgba(0, 71, 171, 0.8),
+                     0px 0px 30px rgba(252, 185, 0, 1),
+                     0px 0px 40px rgba(252, 185, 0, 1);
     }
 }
 
@@ -172,10 +172,10 @@ html {
 }
 
 #chat-box::-webkit-scrollbar-thumb {
-    background-color: #00dbde;
+    background-color: #0047ab;
     border-radius: 10px;
 }
 
 #chat-box::-webkit-scrollbar-thumb:hover {
-    background-color: #00979d;
+    background-color: #00327e;
 }
