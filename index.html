@@ -26,14 +26,22 @@
 
         nav {
             width: 100%;
-            background-color: #0047ab;
-            padding: 10px;
+            padding: 10px 20px;
             position: fixed;
             top: 0;
             left: 0;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #232526, #414345);
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
         }
 
         nav ul {
@@ -42,14 +50,11 @@
             gap: 20px;
         }
 
-        nav ul li {
-            font-size: 1.2rem;
-        }
-
         nav ul li a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
-            transition: color 0.3s;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
         }
 
         nav ul li a:hover {
@@ -57,7 +62,7 @@
         }
 
         #hero {
-            margin-top: 80px;
+            margin-top: 100px;
             text-align: center;
             margin-bottom: 50px;
         }
@@ -66,7 +71,6 @@
             font-size: 3.5rem;
             font-weight: 700;
             color: #ffffff;
-            text-align: center;
         }
 
         #chat-container {
@@ -119,10 +123,48 @@
         #send-button:hover {
             background-color: #00327e;
         }
+
+        #popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        #popup-content {
+            background-color: #232526;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        #popup-content button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #0047ab;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #popup-content button:hover {
+            background-color: #00327e;
+        }
     </style>
 </head>
 <body>
     <nav>
+        <div class="logo">Mental Health Friend</div>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="group_members.html">Group Members</a></li>
@@ -131,6 +173,16 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+
+    <div id="popup">
+        <div id="popup-content">
+            <p>
+                This website is part of a project and not a real mental health service. 
+                If you're facing a real emergency, please reach out to a professional or call emergency services immediately.
+            </p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
 
     <div id="hero" class="hero-text">
         <h1>Your Mental Health Friend</h1>
@@ -152,54 +204,45 @@
         const chatBox = document.getElementById('chat-box');
         const userInput = document.getElementById('user-input');
         const sendButton = document.getElementById('send-button');
+        const popup = document.getElementById('popup');
+
         let userName = '';
 
-        // Conversation logic
+        // Close popup function
+        function closePopup() {
+            popup.style.display = 'none';
+        }
+
+        // Chatbot logic
         const conversation = {
             "how are you?": "I'm just a friend here to listen. How are you feeling today?",
             "i'm feeling good": "That's great to hear, {{name}}! What's been making you feel good lately?",
             "i'm feeling bad": "I'm really sorry you're feeling this way, {{name}}. Would you like to talk more about it?",
-            "tell me more": "Sure! I'm here to help. Is there anything specific you'd like to talk about?",
-            "thank you": "You're very welcome, {{name}}. I'm always here if you need someone to talk to."
+            "thank you": "You're welcome, {{name}}. I'm here for you."
         };
 
-        // Handle sending a message
         function sendMessage() {
             const userText = userInput.value.toLowerCase().trim();
+            if (userText === "") return;
 
-            if (userText === "") {
-                return;
-            }
-
-            // Display user's message in chat
             chatBox.innerHTML += `<p>You: ${userText}</p>`;
             userInput.value = "";
 
-            // If username isn't set, capture the user's name
             if (!userName) {
                 userName = userText;
-                chatBox.innerHTML += `<p>Friend: Nice to meet you, ${userName}! How are you feeling today?</p>`;
+                chatBox.innerHTML += `<p>Friend: Nice to meet you, ${userName}. How are you feeling today?</p>`;
             } else {
-                // Use conversation logic
-                let chatbotResponse = conversation[userText] || "I'm not sure how to respond to that. Could you try asking me in another way?";
-
-                // Personalize the response with the user's name
-                chatbotResponse = chatbotResponse.replace("{{name}}", userName);
-                chatBox.innerHTML += `<p>Friend: ${chatbotResponse}</p>`;
+                let response = conversation[userText] || "I didn't quite catch that. Can you rephrase?";
+                response = response.replace("{{name}}", userName);
+                chatBox.innerHTML += `<p>Friend: ${response}</p>`;
             }
 
-            // Scroll to the bottom of the chatbox
             chatBox.scrollTop = chatBox.scrollHeight;
         }
 
-        // Event listener for the Send button
-        sendButton.addEventListener('click', sendMessage);
-
-        // Allow pressing Enter to send a message
-        userInput.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
+        sendButton.addEventListener("click", sendMessage);
+        userInput.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") sendMessage();
         });
     </script>
 </body>
