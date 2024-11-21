@@ -5,25 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Mental Health Friend</title>
     <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Import Gotham font (Fallback included) */
+        @font-face {
+            font-family: "Gotham";
+            src: url("https://fonts.cdnfonts.com/s/16854/GothamLight.woff") format("woff");
         }
-
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: "Gotham", Arial, sans-serif;
             background-color: #000000;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #232526, #414345);
             color: white;
         }
 
+        /* Navigation Bar */
         nav {
             width: 100%;
             padding: 10px 20px;
@@ -33,16 +31,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(90deg, #0047ab, #00c6ff);
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            background-color: black;
+            border-bottom: 3px solid #e63946;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
             z-index: 1000;
         }
 
         nav .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #ffffff;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav .logo img {
+            height: 50px;
         }
 
         nav ul {
@@ -52,7 +54,7 @@
         }
 
         nav ul li a {
-            color: #ffffff;
+            color: white;
             text-decoration: none;
             font-size: 1.2rem;
             padding: 10px 15px;
@@ -61,11 +63,12 @@
         }
 
         nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #00ffdd;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            background-color: #e63946;
+            color: #ffffff;
+            box-shadow: 0 0 10px #e63946;
         }
 
+        /* Hero Section */
         #hero {
             margin-top: 100px;
             text-align: center;
@@ -75,13 +78,20 @@
         .hero-text h1 {
             font-size: 3.5rem;
             font-weight: 700;
-            color: #ffffff;
+            color: #00aaff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
         }
 
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #adb5bd;
+        }
+
+        /* Chat Container */
         #chat-container {
             width: 60%;
             max-width: 600px;
-            background-color: #232526;
+            background-color: #1c1c1c;
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
@@ -92,10 +102,9 @@
             overflow-y: auto;
             padding: 15px;
             border-radius: 8px;
-            background-color: #1b1b1b;
-            color: #eee;
+            background-color: #121212;
+            color: #d1d1d1;
             font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
             margin-bottom: 10px;
         }
 
@@ -109,14 +118,14 @@
             padding: 10px;
             border-radius: 8px;
             border: 1px solid #555;
-            background-color: #2d2d2d;
+            background-color: #252525;
             color: white;
         }
 
         #send-button {
             width: 12%;
             padding: 10px;
-            background-color: #0047ab;
+            background-color: #e63946;
             color: white;
             border: none;
             border-radius: 8px;
@@ -126,9 +135,10 @@
         }
 
         #send-button:hover {
-            background-color: #00327e;
+            background-color: #d62839;
         }
 
+        /* Popup */
         #popup {
             position: fixed;
             top: 0;
@@ -143,7 +153,7 @@
         }
 
         #popup-content {
-            background-color: #232526;
+            background-color: #1c1c1c;
             color: white;
             padding: 20px;
             border-radius: 8px;
@@ -156,7 +166,7 @@
         #popup-content button {
             margin-top: 10px;
             padding: 10px 20px;
-            background-color: #00c6ff;
+            background-color: #00aaff;
             color: white;
             border: none;
             border-radius: 5px;
@@ -165,13 +175,16 @@
         }
 
         #popup-content button:hover {
-            background-color: #0047ab;
+            background-color: #0092cc;
         }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo">Mental Health Friend</div>
+        <div class="logo">
+            <img src="images/logo.png" alt="MIND Logo">
+            <span style="color: #e63946; font-size: 1.8rem; font-weight: bold;">MIND</span>
+        </div>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="group_members.html">Group Members</a></li>
@@ -193,12 +206,12 @@
 
     <div id="hero" class="hero-text">
         <h1>Your Mental Health Friend</h1>
-        <p>Let's talk. What's your name?</p>
+        <p>Let’s talk. What’s your name?</p>
     </div>
 
     <div id="chat-container">
         <div id="chat-box">
-            <p>Friend: Hi there! What's your name?</p>
+            <p>Friend: Hi there! What’s your name?</p>
         </div>
 
         <div id="input-container">
@@ -222,10 +235,10 @@
 
         // Chatbot logic
         const conversation = {
-            "how are you?": "I'm just a friend here to listen. How are you feeling today?",
-            "i'm feeling good": "That's great to hear, {{name}}! What's been making you feel good lately?",
-            "i'm feeling bad": "I'm really sorry you're feeling this way, {{name}}. Would you like to talk more about it?",
-            "thank you": "You're welcome, {{name}}. I'm here for you."
+            "how are you?": "I’m here to listen. How are you feeling today?",
+            "i’m feeling good": "That’s great to hear, {{name}}! What’s been making you feel good lately?",
+            "i’m feeling bad": "I’m sorry you’re feeling this way, {{name}}. Would you like to talk more about it?",
+            "thank you": "You’re welcome, {{name}}. I’m always here for you."
         };
 
         function sendMessage() {
@@ -239,7 +252,7 @@
                 userName = userText;
                 chatBox.innerHTML += `<p>Friend: Nice to meet you, ${userName}. How are you feeling today?</p>`;
             } else {
-                let response = conversation[userText] || "I didn't quite catch that. Can you rephrase?";
+                let response = conversation[userText] || "I’m not sure how to respond to that. Could you rephrase?";
                 response = response.replace("{{name}}", userName);
                 chatBox.innerHTML += `<p>Friend: ${response}</p>`;
             }
