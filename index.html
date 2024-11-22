@@ -12,8 +12,7 @@
       --purple: #9c27b0;
       --pink: #f06292;
       --blue: #03a9f4;
-      --black: #212121;
-      --background: #121212;
+      --black: #121212;
       --white: #ffffff;
     }
 
@@ -23,53 +22,48 @@
       box-sizing: border-box;
     }
 
-    ul {
-      list-style: none;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
     body {
       font-family: "Poiret One", sans-serif;
-      background: var(--background);
+      background: var(--black);
       color: var(--white);
-      text-align: center;
-      overflow-x: hidden;
-      padding-bottom: 100px; /* For bottom menu */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      margin: 0;
     }
 
     h1 {
-      font-size: 3.5rem;
-      margin-top: 50px;
+      font-size: 3rem;
       color: #00aaff;
+      margin-top: 20px;
     }
 
     p {
       font-size: 1.2rem;
-      margin: 20px;
       color: #d1d1d1;
+      margin: 10px 0 20px 0;
     }
 
-    /* Chat Container */
+    /* Chatbox Container */
     #chat-container {
       width: 60%;
       max-width: 600px;
-      background-color: #1c1c1c;
+      background-color: var(--black);
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
-      margin: 50px auto;
+      text-align: left;
+      margin-top: 20px;
     }
 
     #chat-box {
-      height: 400px;
+      height: 300px;
       overflow-y: auto;
       padding: 15px;
       border-radius: 8px;
-      background-color: #121212;
+      background-color: #1c1c1c;
       color: #d1d1d1;
       font-size: 1rem;
       margin-bottom: 10px;
@@ -105,97 +99,121 @@
       background-color: #0092cc;
     }
 
-    /* Bottom Navigation */
-    .bottom-nav {
+    /* Menu at Bottom Left */
+    .menu-container {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: var(--black);
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 10px 0;
-      box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
-      z-index: 1000;
+      bottom: 5%;
+      left: 5%;
+      width: 100px;
+      height: 100px;
     }
 
-    .bottom-nav a {
+    .menu-container [type="checkbox"] {
+      display: none;
+    }
+
+    .menu-container label {
+      width: 70px;
+      height: 70px;
+      background: #555;
+      color: var(--white);
+      font-size: 1.5rem;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      width: 60px;
-      height: 60px;
+      align-items: center;
       border-radius: 50%;
+      cursor: pointer;
+      position: absolute;
+      bottom: 0;
+      transition: all 0.3s ease;
+    }
+
+    .menu-container label:hover {
+      background: #333;
+    }
+
+    .menu-container .menu-options {
+      position: absolute;
+      bottom: 80px;
+      left: 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .menu-container .menu-options li {
+      width: 50px;
+      height: 50px;
+      background: var(--blue);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
       color: var(--white);
       font-size: 1.2rem;
       transition: all 0.3s ease;
     }
 
-    .bottom-nav a:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+    .menu-container .menu-options li:nth-child(1) {
+      background: var(--yellow);
     }
 
-    .bottom-nav a:nth-child(1) {
-      background-color: var(--yellow);
+    .menu-container .menu-options li:nth-child(2) {
+      background: var(--purple);
     }
 
-    .bottom-nav a:nth-child(2) {
-      background-color: var(--purple);
+    .menu-container .menu-options li:nth-child(3) {
+      background: var(--pink);
     }
 
-    .bottom-nav a:nth-child(3) {
-      background-color: var(--pink);
+    .menu-container .menu-options li:nth-child(4) {
+      background: var(--blue);
     }
 
-    .bottom-nav a:nth-child(4) {
-      background-color: var(--blue);
+    .menu-container .menu-options li:hover {
+      transform: scale(1.1);
     }
 
-    .bottom-nav span {
-      margin-top: 5px;
-      font-size: 0.8rem;
+    .menu-container input:checked ~ .menu-options {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .menu-container input:checked ~ label {
+      transform: scale(0.8);
+      background: var(--black);
     }
   </style>
 </head>
 <body>
-  <!-- Title -->
   <h1>Your Mental Health Friend</h1>
-  <p>Let’s talk. What’s your name?</p>
 
-  <!-- Chat Container -->
+  <!-- Chatbox -->
   <div id="chat-container">
     <div id="chat-box">
       <p>Friend: Hi there! What’s your name?</p>
     </div>
-
     <div id="input-container">
       <input type="text" id="user-input" placeholder="Type your message...">
       <button id="send-button">Send</button>
     </div>
   </div>
 
-  <!-- Bottom Navigation -->
-  <nav class="bottom-nav">
-    <a href="about.html">
-      <i class="fas fa-address-card"></i>
-      <span>About</span>
-    </a>
-    <a href="problem.html">
-      <i class="fas fa-tasks"></i>
-      <span>Problem</span>
-    </a>
-    <a href="solutions.html">
-      <i class="fas fa-lightbulb"></i>
-      <span>Solutions</span>
-    </a>
-    <a href="contact.html">
-      <i class="fas fa-envelope"></i>
-      <span>Contact</span>
-    </a>
-  </nav>
+  <!-- Circular Menu -->
+  <div class="menu-container">
+    <input type="checkbox" id="menu">
+    <label for="menu"><i class="fas fa-bars"></i></label>
+    <ul class="menu-options">
+      <li><a href="about.html"><i class="fas fa-info"></i></a></li>
+      <li><a href="problem.html"><i class="fas fa-tasks"></i></a></li>
+      <li><a href="solutions.html"><i class="fas fa-lightbulb"></i></a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i></a></li>
+    </ul>
+  </div>
 
   <script>
     const chatBox = document.getElementById("chat-box");
