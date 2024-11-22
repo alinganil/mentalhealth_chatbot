@@ -4,16 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Mental Health Friend</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
     :root {
-      --white: #ffffff;
-      --light-grey: #edf0f1;
-      --violet: #655be1;
-      --dark-violet: #5146e1;
-      --black: #21232a;
+      --yellow: #ffd600;
+      --purple: #9c27b0;
+      --pink: #f06292;
+      --blue: #03a9f4;
+      --black: #212121;
       --background: #121212;
+      --white: #ffffff;
     }
 
     * {
@@ -32,16 +33,16 @@
     }
 
     body {
-      font-family: "Inter", sans-serif;
-      text-align: center;
-      padding: 0;
+      font-family: "Poiret One", sans-serif;
       background: var(--background);
       color: var(--white);
+      text-align: center;
       overflow-x: hidden;
+      padding-bottom: 100px; /* For bottom menu */
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       margin-top: 50px;
       color: #00aaff;
     }
@@ -50,123 +51,6 @@
       font-size: 1.2rem;
       margin: 20px;
       color: #d1d1d1;
-    }
-
-    .nav {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      max-width: 400px;
-      padding-bottom: 20px;
-      border-radius: 5px 5px 25px 25px;
-      margin: 50px auto 0;
-    }
-
-    .nav [type="checkbox"] {
-      position: absolute;
-      left: -9999px;
-    }
-
-    .nav [type="checkbox"] + label {
-      position: relative;
-      width: 75px;
-      height: 75px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      cursor: pointer;
-      z-index: 1;
-      background: var(--violet);
-      border-radius: 50%;
-      transform: translateY(-50%);
-      transition: all 0.2s;
-      color: white;
-    }
-
-    .nav [type="checkbox"] + label:hover {
-      background: var(--dark-violet);
-    }
-
-    .menu li {
-      position: absolute;
-      top: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      transition: all 0.4s;
-    }
-
-    .menu li:nth-child(1) {
-      transition-delay: 0.2s;
-    }
-
-    .menu li:nth-child(2) {
-      transition-delay: 0.15s;
-    }
-
-    .menu li:nth-child(3) {
-      transition-delay: 0.1s;
-    }
-
-    .menu li:nth-child(4) {
-      transition-delay: 0.05s;
-    }
-
-    .menu li a {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--violet);
-    }
-
-    .menu li a span {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translateY(calc(-100% - 5px));
-      width: 100%;
-      font-size: 13px;
-      white-space: nowrap;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s;
-      color: var(--white);
-      font-weight: bold;
-    }
-
-    .nav input:checked + label {
-      background: var(--black);
-      transform: translateY(calc(-50% + 4px));
-    }
-
-    .nav input:checked ~ .menu li:nth-child(1) {
-      top: -210px;
-      transition-delay: 0.1s;
-    }
-
-    .nav input:checked ~ .menu li:nth-child(2) {
-      top: -160px;
-      left: calc(50% - 75px);
-      transition-delay: 0.2s;
-    }
-
-    .nav input:checked ~ .menu li:nth-child(3) {
-      top: -160px;
-      left: calc(50% + 75px);
-      transition-delay: 0.3s;
-    }
-
-    .nav input:checked ~ .menu li:nth-child(4) {
-      top: -110px;
-      transition-delay: 0.4s;
-    }
-
-    .nav input:checked ~ .menu li a span {
-      opacity: 1;
-      transition-delay: 0.9s;
     }
 
     /* Chat Container */
@@ -220,20 +104,66 @@
     #send-button:hover {
       background-color: #0092cc;
     }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--black);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    .bottom-nav a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .bottom-nav a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .bottom-nav a:nth-child(1) {
+      background-color: var(--yellow);
+    }
+
+    .bottom-nav a:nth-child(2) {
+      background-color: var(--purple);
+    }
+
+    .bottom-nav a:nth-child(3) {
+      background-color: var(--pink);
+    }
+
+    .bottom-nav a:nth-child(4) {
+      background-color: var(--blue);
+    }
+
+    .bottom-nav span {
+      margin-top: 5px;
+      font-size: 0.8rem;
+    }
   </style>
 </head>
 <body>
-  <!-- Circular Navigation -->
-  <nav class="nav">
-    <input id="menu" type="checkbox">
-    <label for="menu">Menu</label>
-    <ul class="menu">
-      <li><a href="about.html"><span>About</span></a></li>
-      <li><a href="problem.html"><span>Problem</span></a></li>
-      <li><a href="solutions.html"><span>Solutions</span></a></li>
-      <li><a href="contact.html"><span>Contact</span></a></li>
-    </ul>
-  </nav>
+  <!-- Title -->
+  <h1>Your Mental Health Friend</h1>
+  <p>Let’s talk. What’s your name?</p>
 
   <!-- Chat Container -->
   <div id="chat-container">
@@ -246,6 +176,26 @@
       <button id="send-button">Send</button>
     </div>
   </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="about.html">
+      <i class="fas fa-address-card"></i>
+      <span>About</span>
+    </a>
+    <a href="problem.html">
+      <i class="fas fa-tasks"></i>
+      <span>Problem</span>
+    </a>
+    <a href="solutions.html">
+      <i class="fas fa-lightbulb"></i>
+      <span>Solutions</span>
+    </a>
+    <a href="contact.html">
+      <i class="fas fa-envelope"></i>
+      <span>Contact</span>
+    </a>
+  </nav>
 
   <script>
     const chatBox = document.getElementById("chat-box");
