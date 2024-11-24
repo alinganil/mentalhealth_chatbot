@@ -4,17 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Mental Health Friend</title>
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --acu-purple: #4f2c92;
-      --acu-gold: #f2a900;
+      --purple: #4e2a84;
+      --gold: #ffcc00;
       --white: #ffffff;
-      --light-grey: #f5f5f5;
-      --dark-grey: #1c1c1c;
-      --gradient: linear-gradient(to right, #4f2c92, #f2a900);
+      --black: #333333;
+      --gray: #f6f6f6;
+      --shadow: rgba(0, 0, 0, 0.1);
     }
 
     * {
@@ -24,36 +22,71 @@
     }
 
     body {
-      font-family: "Playfair Display", serif;
-      background: var(--white);
-      color: var(--dark-grey);
+      font-family: "Inter", sans-serif;
+      background-color: var(--white);
+      color: var(--black);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       height: 100vh;
       margin: 0;
     }
 
-    h1 {
-      font-family: "Playfair Display", serif;
-      font-size: 4rem;
-      margin: 20px 0;
-      text-align: center;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    /* Header */
+    header {
+      width: 100%;
+      background-color: var(--purple);
+      color: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      box-shadow: 0 4px 8px var(--shadow);
     }
 
-    /* Chatbox Container */
+    header .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    header nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    header nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s ease-in-out;
+    }
+
+    header nav a:hover {
+      color: var(--gold);
+    }
+
+    /* Title */
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.5rem;
+      margin: 30px 0;
+      color: var(--purple);
+      text-align: center;
+    }
+
+    /* Chatbox */
     #chat-container {
-      width: 80%;
+      width: 60%;
       max-width: 600px;
-      background: var(--light-grey);
+      background-color: var(--gray);
       padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-      text-align: left;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     #chat-box {
@@ -61,85 +94,116 @@
       overflow-y: auto;
       padding: 15px;
       border-radius: 8px;
-      background: var(--white);
-      border: 1px solid #ddd;
-      color: var(--dark-grey);
-      font-size: 1rem;
+      background-color: var(--white);
+      color: var(--black);
+      font-size: 0.9rem;
       margin-bottom: 10px;
-      box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--shadow);
     }
 
     #input-container {
       display: flex;
-      justify-content: space-between;
       gap: 10px;
     }
 
     #user-input {
-      flex-grow: 1;
+      flex: 1;
       padding: 10px;
       border-radius: 8px;
-      border: 1px solid #ddd;
-      background: var(--white);
-      color: var(--dark-grey);
+      border: 1px solid var(--shadow);
       font-size: 1rem;
-      box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: var(--white);
+      color: var(--black);
     }
 
     #send-button {
       padding: 10px 20px;
-      background: var(--acu-purple);
+      background-color: var(--purple);
       color: var(--white);
       border: none;
       border-radius: 8px;
       font-weight: bold;
       cursor: pointer;
+      font-size: 1rem;
       transition: background-color 0.3s ease;
     }
 
     #send-button:hover {
-      background-color: #3b2074;
+      background-color: var(--gold);
+      color: var(--black);
+    }
+
+    /* Statistics Section */
+    .statistics {
+      display: flex;
+      justify-content: space-around;
+      width: 80%;
+      margin-top: 30px;
+    }
+
+    .stat-box {
+      text-align: center;
+      font-family: "Inter", sans-serif;
+    }
+
+    .stat-box h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--purple);
+    }
+
+    .stat-box p {
+      font-size: 1rem;
+      color: var(--black);
+    }
+
+    /* Motivational Quote */
+    .quote {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      font-style: italic;
+      text-align: center;
+      color: var(--gold);
     }
 
     /* Menu Button */
-    .menu-container {
+    .menu-btn {
       position: fixed;
       bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    .menu-icon {
+      right: 20px;
       width: 60px;
       height: 60px;
-      background: var(--acu-purple);
+      background-color: var(--purple);
       color: var(--white);
+      border: none;
       border-radius: 50%;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 8px var(--shadow);
+      cursor: pointer;
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      align-items: center;
+      transition: background-color 0.3s ease-in-out;
     }
 
-    .menu-icon:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    }
-
-    .menu-text {
-      margin-top: 10px;
-      font-size: 1rem;
-      font-weight: bold;
-      color: var(--acu-purple);
+    .menu-btn:hover {
+      background-color: var(--gold);
+      color: var(--black);
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
+  <header>
+    <div class="logo">ACU Project</div>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="problem.html">Problem</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
   <!-- Title -->
   <h1>Your Mental Health Friend</h1>
 
@@ -154,21 +218,43 @@
     </div>
   </div>
 
-  <!-- Menu Button -->
-  <div class="menu-container" onclick="redirectToMenu()">
-    <div class="menu-icon">
-      <i class="fas fa-bars"></i>
+  <!-- Statistics Section -->
+  <div class="statistics">
+    <div class="stat-box">
+      <h2>18M</h2>
+      <p>College Students</p>
     </div>
-    <div class="menu-text">Menu</div>
+    <div class="stat-box">
+      <h2>44%</h2>
+      <p>Mentally Struggling</p>
+    </div>
+    <div class="stat-box">
+      <h2>37%</h2>
+      <p>Anxiety Disorders</p>
+    </div>
+    <div class="stat-box">
+      <h2>15%</h2>
+      <p>Considered Suicide</p>
+    </div>
   </div>
+
+  <!-- Quote Section -->
+  <div class="quote" id="quote"></div>
+
+  <!-- Menu Button -->
+  <button class="menu-btn" onclick="location.href='menu.html'">
+    <i class="fas fa-bars"></i>
+  </button>
 
   <script>
     const chatBox = document.getElementById("chat-box");
     const userInput = document.getElementById("user-input");
     const sendButton = document.getElementById("send-button");
+    const quoteElement = document.getElementById("quote");
 
     let userName = "";
 
+    // Send Message Logic
     function sendMessage() {
       const userText = userInput.value.trim();
       if (userText === "") return;
@@ -189,12 +275,27 @@
     sendButton.addEventListener("click", sendMessage);
     userInput.addEventListener("keypress", function (e) {
       if (e.key === "Enter") sendMessage();
-
-      // Redirect to menu page when the menu is clicked
-      function redirectToMenu() {
-        window.location.href = "menu.html";
-      }
     });
+
+    // Motivational Quotes
+    const quotes = [
+      "You are stronger than you think.",
+      "Every day is a new beginning.",
+      "It's okay to not be okay. Just don't give up.",
+      "Small steps every day lead to big changes.",
+      "You are capable of amazing things.",
+      "Your mental health matters.",
+      "It's a bad day, not a bad life.",
+      "Healing takes time, but you're on the right path."
+    ];
+
+    function displayRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      quoteElement.innerText = quotes[randomIndex];
+    }
+
+    // Display a random quote on page load
+    displayRandomQuote();
   </script>
 </body>
 </html>
