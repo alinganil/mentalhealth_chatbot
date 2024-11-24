@@ -28,15 +28,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       height: 100vh;
       margin: 0;
     }
 
     h1 {
       font-family: "Playfair Display", serif;
-      font-size: 3rem;
-      margin-bottom: 20px;
+      font-size: 3.5rem;
+      margin: 20px 0;
       text-align: center;
       background: var(--gradient);
       -webkit-background-clip: text;
@@ -96,108 +96,56 @@
       background-color: #0092cc;
     }
 
-    /* Menu Bar */
-    .menu {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .menu button {
-      background-color: #1c1c1c;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 15px;
-      margin-bottom: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .menu button:hover {
-      background-color: #ff5f6d;
-      color: white;
-      box-shadow: 0 0 10px rgba(255, 95, 109, 0.7);
-    }
-
-    .menu .dropdown {
-      display: none;
-      flex-direction: column;
-      margin-top: 5px;
-      padding: 10px;
-      background: #252525;
-      border-radius: 8px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-    }
-
-    .menu button:focus + .dropdown,
-    .menu button:hover + .dropdown {
-      display: flex;
-    }
-
-    .dropdown a {
-      color: white;
-      text-decoration: none;
-      padding: 5px 10px;
-      transition: all 0.3s;
-    }
-
-    .dropdown a:hover {
-      background: var(--red);
-      border-radius: 4px;
-    }
-
-    /* Statistics Section */
-    .statistics {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-    }
-
-    .stat-box {
-      text-align: center;
-      font-family: "Playfair Display", serif;
-    }
-
-    .stat-box h2 {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--red);
-    }
-
-    .stat-box p {
-      font-size: 1rem;
-      font-weight: normal;
+    /* Heart Menu Button */
+    .heart-menu {
+      position: fixed;
+      bottom: 20px;
+      width: 80px;
+      height: 80px;
+      background-color: var(--red);
       color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(255, 59, 59, 0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Quote Section */
-    .quote {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      text-align: center;
-      color: #ffd700;
-      font-style: italic;
+    .heart-menu:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 15px rgba(255, 59, 59, 0.9);
+    }
+
+    .heart-menu i {
+      font-size: 2rem;
+    }
+
+    /* Confetti Effect */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: var(--red);
+      border-radius: 50%;
+      animation: confetti 1.5s linear forwards;
+      z-index: 9999;
+    }
+
+    @keyframes confetti {
+      0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(300px) rotate(720deg);
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Menu -->
-  <div class="menu">
-    <button>Menu</button>
-    <div class="dropdown">
-      <a href="about.html">About</a>
-      <a href="problem.html">Problem</a>
-      <a href="solutions.html">Solutions</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-
   <!-- Title -->
   <h1>Your Mental Health Friend</h1>
 
@@ -212,78 +160,43 @@
     </div>
   </div>
 
-  <!-- Statistics Section -->
-  <div class="statistics">
-    <div class="stat-box">
-      <h2>18M</h2>
-      <p>College Students</p>
-    </div>
-    <div class="stat-box">
-      <h2>44%</h2>
-      <p>Mentally Struggling</p>
-    </div>
-    <div class="stat-box">
-      <h2>37%</h2>
-      <p>Anxiety Disorders</p>
-    </div>
-    <div class="stat-box">
-      <h2>15%</h2>
-      <p>Considered Suicide</p>
-    </div>
+  <!-- Heart Menu -->
+  <div class="heart-menu" id="heart-menu">
+    <i class="fas fa-heart"></i>
   </div>
 
-  <!-- Quote Section -->
-  <div class="quote" id="quote"></div>
-
   <script>
-    const chatBox = document.getElementById("chat-box");
-    const userInput = document.getElementById("user-input");
-    const sendButton = document.getElementById("send-button");
-    const quoteElement = document.getElementById("quote");
+    const heartMenu = document.getElementById("heart-menu");
 
-    let userName = "";
+    // Create confetti effect
+    function createConfetti() {
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.style.backgroundColor = getRandomColor();
+        confetti.style.left = Math.random() * window.innerWidth + "px";
+        confetti.style.top = Math.random() * window.innerHeight + "px";
+        document.body.appendChild(confetti);
 
-    function sendMessage() {
-      const userText = userInput.value.trim();
-      if (userText === "") return;
-
-      chatBox.innerHTML += `<p>You: ${userText}</p>`;
-      userInput.value = "";
-
-      if (!userName) {
-        userName = userText;
-        chatBox.innerHTML += `<p>Friend: Nice to meet you, ${userName}. How are you feeling today?</p>`;
-      } else {
-        chatBox.innerHTML += `<p>Friend: I'm here to listen, ${userName}. Tell me more!</p>`;
+        setTimeout(() => {
+          confetti.remove();
+        }, 1500);
       }
-
-      chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    sendButton.addEventListener("click", sendMessage);
-    userInput.addEventListener("keypress", function (e) {
-      if (e.key === "Enter") sendMessage();
+    // Random color generator for confetti
+    function getRandomColor() {
+      const colors = ["#ff3b3b", "#ff5f6d", "#ffc371", "#00aaff", "#ffd700"];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    // Redirect to menu.html after confetti
+    heartMenu.addEventListener("click", () => {
+      createConfetti();
+      setTimeout(() => {
+        window.location.href = "menu.html";
+      }, 1500); // Redirect after 1.5 seconds
     });
-
-    // Random Motivational Quotes
-    const quotes = [
-      "You are stronger than you think.",
-      "Every day is a new beginning.",
-      "It's okay to not be okay. Just don't give up.",
-      "Small steps every day lead to big changes.",
-      "You are capable of amazing things.",
-      "Your mental health matters.",
-      "It's a bad day, not a bad life.",
-      "Healing takes time, but you're on the right path."
-    ];
-
-    function displayRandomQuote() {
-      const randomIndex = Math.floor(Math.random() * quotes.length);
-      quoteElement.innerText = quotes[randomIndex];
-    }
-
-    // Display a new quote on page load
-    displayRandomQuote();
   </script>
 </body>
 </html>
