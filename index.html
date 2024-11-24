@@ -5,17 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Mental Health Friend</title>
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Material+Icons&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --yellow: #ffd600;
-      --purple: #9c27b0;
-      --pink: #f06292;
-      --blue: #03a9f4;
+      --red: #ff3b3b;
       --black: #121212;
       --white: #ffffff;
-      --gradient: linear-gradient(90deg, #ff6f91, #ff9671, #ffc75f, #f9f871);
     }
 
     * {
@@ -34,19 +29,14 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
-      overflow: hidden;
     }
 
     h1 {
       font-family: "Playfair Display", serif;
-      font-size: 3rem; /* Increased title size */
+      font-size: 3rem;
       margin-bottom: 20px;
       text-align: center;
-      background: var(--gradient);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+      color: #ff9671;
     }
 
     /* Chatbox Container */
@@ -102,163 +92,42 @@
       background-color: #0092cc;
     }
 
-    /* Menu Bar */
-    .menu-container {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-    }
-
-    .menu-container input {
-      display: none;
-    }
-
-    .menu-container label {
-      width: 50px;
-      height: 50px;
-      background: #555;
-      color: var(--white);
-      font-size: 1.5rem;
+    /* Statistics Section */
+    .statistics {
+      margin-top: 20px;
       display: flex;
       justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+      gap: 30px;
     }
 
-    .menu-container label:hover {
-      background: #333;
-    }
-
-    .menu-container ul {
-      margin-top: 10px;
-      list-style: none;
-      display: none;
-      gap: 10px;
-      flex-direction: column;
-    }
-
-    .menu-container ul li {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background-color: var(--yellow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.3s;
-    }
-
-    .menu-container ul li:hover {
-      transform: scale(1.1);
-    }
-
-    .menu-container ul li:nth-child(1) {
-      background: var(--yellow);
-    }
-
-    .menu-container ul li:nth-child(2) {
-      background: var(--purple);
-    }
-
-    .menu-container ul li:nth-child(3) {
-      background: var(--pink);
-    }
-
-    .menu-container ul li:nth-child(4) {
-      background: var(--blue);
-    }
-
-    .menu-container ul li:hover::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      top: 60px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--white);
-      color: var(--black);
-      padding: 5px 10px;
-      font-size: 0.8rem;
-      border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      white-space: nowrap;
-      pointer-events: none;
-    }
-
-    .menu-container input:checked ~ ul {
-      display: flex;
-    }
-
-    .menu-container input:checked ~ label {
-      transform: scale(0.8);
-      background: var(--black);
-    }
-
-    /* Popup */
-    #popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-    }
-
-    #popup-content {
-      background-color: #1c1c1c;
-      color: white;
-      padding: 20px;
-      border-radius: 8px;
+    .stat-box {
       text-align: center;
-      max-width: 400px;
-      width: 90%;
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+      font-family: "Playfair Display", serif;
     }
 
-    #popup-content button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #00aaff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+    .stat-box h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--red);
     }
 
-    #popup-content button:hover {
-      background-color: #0092cc;
+    .stat-box p {
+      font-size: 1rem;
+      font-weight: normal;
+      color: var(--white);
+    }
+
+    /* Quote Section */
+    .quote {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      text-align: center;
+      color: #ffd700;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
-  <!-- Warning Popup -->
-  <div id="popup">
-    <div id="popup-content">
-      <p>This website is part of a project and not a real mental health service. If you're facing a real emergency, please reach out to a professional or call emergency services immediately.</p>
-      <button onclick="closePopup()">Close</button>
-    </div>
-  </div>
-
-  <!-- Menu Bar -->
-  <div class="menu-container">
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul>
-      <li data-tooltip="About"><i class="fas fa-info-circle"></i></li>
-      <li data-tooltip="Problem"><i class="fas fa-exclamation-triangle"></i></li>
-      <li data-tooltip="Solutions"><i class="fas fa-lightbulb"></i></li>
-      <li data-tooltip="Contact"><i class="fas fa-envelope"></i></li>
-    </ul>
-  </div>
-
   <!-- Title -->
   <h1>Your Mental Health Friend</h1>
 
@@ -273,17 +142,36 @@
     </div>
   </div>
 
+  <!-- Statistics Section -->
+  <div class="statistics">
+    <div class="stat-box">
+      <h2>18M</h2>
+      <p>College Students</p>
+    </div>
+    <div class="stat-box">
+      <h2>44%</h2>
+      <p>Mentally Struggling</p>
+    </div>
+    <div class="stat-box">
+      <h2>37%</h2>
+      <p>Anxiety Disorders</p>
+    </div>
+    <div class="stat-box">
+      <h2>15%</h2>
+      <p>Considered Suicide</p>
+    </div>
+  </div>
+
+  <!-- Quote Section -->
+  <div class="quote" id="quote"></div>
+
   <script>
     const chatBox = document.getElementById("chat-box");
     const userInput = document.getElementById("user-input");
     const sendButton = document.getElementById("send-button");
-    const popup = document.getElementById("popup");
+    const quoteElement = document.getElementById("quote");
 
     let userName = "";
-
-    function closePopup() {
-      popup.style.display = "none";
-    }
 
     function sendMessage() {
       const userText = userInput.value.trim();
@@ -306,6 +194,26 @@
     userInput.addEventListener("keypress", function (e) {
       if (e.key === "Enter") sendMessage();
     });
+
+    // Random Motivational Quotes
+    const quotes = [
+      "You are stronger than you think.",
+      "Every day is a new beginning.",
+      "It's okay to not be okay. Just don't give up.",
+      "Small steps every day lead to big changes.",
+      "You are capable of amazing things.",
+      "Your mental health matters.",
+      "It's a bad day, not a bad life.",
+      "Healing takes time, but you're on the right path."
+    ];
+
+    function displayRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      quoteElement.innerText = quotes[randomIndex];
+    }
+
+    // Display a new quote on page load
+    displayRandomQuote();
   </script>
 </body>
 </html>
