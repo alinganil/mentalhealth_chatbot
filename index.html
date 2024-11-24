@@ -6,11 +6,13 @@
   <title>Your Mental Health Friend</title>
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6PRibWQz6Nr9xbTChzMFM06pD0IR3O/o0PvXFY9/nqV03x5zS9E1E7yWvE9zcFo8x3qiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
       --red: #ff3b3b;
       --black: #121212;
       --white: #ffffff;
+      --gradient: linear-gradient(to right, #ff5f6d, #ffc371);
     }
 
     * {
@@ -36,7 +38,9 @@
       font-size: 3rem;
       margin-bottom: 20px;
       text-align: center;
-      color: #ff9671;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     /* Chatbox Container */
@@ -92,6 +96,61 @@
       background-color: #0092cc;
     }
 
+    /* Menu Bar */
+    .menu {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .menu button {
+      background-color: #1c1c1c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .menu button:hover {
+      background-color: #ff5f6d;
+      color: white;
+      box-shadow: 0 0 10px rgba(255, 95, 109, 0.7);
+    }
+
+    .menu .dropdown {
+      display: none;
+      flex-direction: column;
+      margin-top: 5px;
+      padding: 10px;
+      background: #252525;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu button:focus + .dropdown,
+    .menu button:hover + .dropdown {
+      display: flex;
+    }
+
+    .dropdown a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 10px;
+      transition: all 0.3s;
+    }
+
+    .dropdown a:hover {
+      background: var(--red);
+      border-radius: 4px;
+    }
+
     /* Statistics Section */
     .statistics {
       margin-top: 20px;
@@ -128,6 +187,17 @@
   </style>
 </head>
 <body>
+  <!-- Menu -->
+  <div class="menu">
+    <button>Menu</button>
+    <div class="dropdown">
+      <a href="about.html">About</a>
+      <a href="problem.html">Problem</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
   <!-- Title -->
   <h1>Your Mental Health Friend</h1>
 
