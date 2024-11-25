@@ -4,16 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ACU Mental Health Support</title>
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6PRibWQz6Nr9xbTChzMFM06pD0IR3O/o0PvXFY9/nqV03x5zS9E1E7yWvE9zcFo8x3qiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
-      --acu-blue: #00274c;
-      --acu-gold: #f7b800;
-      --white: #ffffff;
-      --light-grey: #f0f0f0;
+      --acu-purple: #5e4780;
+      --light-grey: #f9f9f9;
       --black: #121212;
+      --gradient: linear-gradient(to right, #5e4780, #9c88cc);
+      --dark-purple: #3c285c;
     }
 
     * {
@@ -33,53 +31,13 @@
       min-height: 100vh;
     }
 
-    header {
-      width: 100%;
-      padding: 20px 0;
-      background-color: var(--white);
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    header img {
-      height: 80px;
-      margin-bottom: 10px;
-    }
-
     h1 {
-      color: var(--acu-blue);
-      font-size: 2.5rem;
-      margin-top: 10px;
+      font-size: 2.8rem;
+      margin: 30px 0 20px;
       text-align: center;
-    }
-
-    h1 span {
-      color: var(--acu-gold);
-    }
-
-    /* Links Section */
-    .links {
-      margin: 20px 0;
-      display: flex;
-      gap: 30px;
-      justify-content: center;
-    }
-
-    .links a {
-      padding: 15px 30px;
-      border: 2px solid var(--acu-blue);
-      border-radius: 8px;
-      text-decoration: none;
-      color: var(--white);
-      background-color: var(--acu-blue);
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .links a:hover {
-      background-color: var(--acu-gold);
-      color: var(--black);
-      border-color: var(--acu-gold);
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     /* Chatbox Container */
@@ -90,8 +48,8 @@
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-      margin-top: 20px;
       text-align: left;
+      margin-top: 20px;
     }
 
     #chat-box {
@@ -122,7 +80,7 @@
     #send-button {
       width: 12%;
       padding: 10px;
-      background-color: var(--acu-blue);
+      background-color: var(--acu-purple);
       color: var(--white);
       border: none;
       border-radius: 8px;
@@ -132,41 +90,75 @@
     }
 
     #send-button:hover {
-      background-color: var(--acu-gold);
+      background-color: var(--dark-purple);
+    }
+
+    /* Menu Button */
+    .menu {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--acu-purple);
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .menu:hover {
+      transform: scale(1.1);
+    }
+
+    .menu span {
+      font-size: 1.5rem;
+    }
+
+    /* Statistics Section */
+    .statistics {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .stat-box {
+      text-align: center;
+      font-family: "Playfair Display", serif;
+      margin: 10px 0;
+    }
+
+    .stat-box h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--acu-purple);
+    }
+
+    .stat-box p {
+      font-size: 1rem;
+      font-weight: normal;
       color: var(--black);
     }
 
-    /* Footer Quote Section */
-    footer {
+    /* Quote Section */
+    .quote {
       margin-top: 20px;
-      padding: 10px 20px;
+      font-size: 1.2rem;
       text-align: center;
-      color: var(--acu-blue);
+      color: var(--acu-purple);
       font-style: italic;
-      background: var(--white);
-      box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
-      width: 100%;
-    }
-
-    footer span {
-      color: var(--acu-gold);
-      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <img src="images/acuLOGO.png" alt="ACU Logo">
-    <h1>ACU <span>Mental Health Support</span></h1>
-  </header>
-
-  <!-- Links -->
-  <div class="links">
-    <a href="menu.html">Menu</a>
-    <a href="about.html">About</a>
-    <a href="https://suicidepreventionlifeline.org/" target="_blank">Emergency Help</a>
-  </div>
+  <!-- Title -->
+  <h1>ACU Mental Health Support</h1>
 
   <!-- Chatbox -->
   <div id="chat-container">
@@ -179,10 +171,33 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    "Together, we can create a <span>brighter tomorrow</span>." - ACU Mental Health Support
-  </footer>
+  <!-- Statistics Section -->
+  <div class="statistics">
+    <div class="stat-box">
+      <h2>18M</h2>
+      <p>College Students</p>
+    </div>
+    <div class="stat-box">
+      <h2>44%</h2>
+      <p>Mentally Struggling</p>
+    </div>
+    <div class="stat-box">
+      <h2>37%</h2>
+      <p>Anxiety Disorders</p>
+    </div>
+    <div class="stat-box">
+      <h2>15%</h2>
+      <p>Considered Suicide</p>
+    </div>
+  </div>
+
+  <!-- Menu Button -->
+  <div class="menu" onclick="window.location.href='menu.html';">
+    <span>&#9776;</span>
+  </div>
+
+  <!-- Quote Section -->
+  <div class="quote">"Together, we can create a brighter tomorrow." - ACU Support Team</div>
 
   <script>
     const chatBox = document.getElementById("chat-box");
