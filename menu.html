@@ -3,251 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ACU Mental Health Support</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <title>Shadow Button Set</title>
   <style>
-    :root {
-      --acu-purple: #5e4780;
-      --light-grey: #f9f9f9;
-      --white: #ffffff;
-      --gradient: linear-gradient(to right, #5e4780, #9c88cc);
-      --dark-purple: #3c285c;
+    * {
+      box-sizing: border-box;
+      margin: 0;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    html {
+      block-size: 100%;
     }
 
     body {
-      font-family: "Playfair Display", serif;
-      background: var(--light-grey);
-      color: var(--black);
+      min-block-size: 100%;
+      font-family: system-ui, sans-serif;
+      display: grid;
+      place-content: center;
+    }
+
+    .shadow-button-set {
+      margin: 0;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
+      align-items: flex-start;
+      gap: 2.5vmin;
     }
 
-    header {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      background-color: var(--white);
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    .shadow-button-set > li {
+      display: inline-flex;
+      background: black;
     }
 
-    header img {
-      height: 50px;
+    .shadow-button-set > li:is(:hover, :focus-within) > button:not(:active) {
+      --distance: -10px;
     }
 
-    header nav {
-      display: flex;
-      gap: 15px;
+    .shadow-button-set button {
+      appearance: none;
+      outline: none;
+      font-size: 5vmin;
+      border: 3px solid black;
+      background: white;
+      --distance: 0;
+      transform: translateX(var(--distance)) translateY(var(--distance));
     }
 
-    header nav a {
-      text-decoration: none;
-      color: var(--acu-purple);
-      font-size: 1rem;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    header nav a:hover {
-      color: var(--dark-purple);
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      margin: 30px 0 20px;
-      text-align: center;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Chatbox Container */
-    #chat-container {
-      width: 60%;
-      max-width: 600px;
-      background-color: var(--white);
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-      text-align: left;
-      margin: 20px auto;
-    }
-
-    #chat-box {
-      height: 300px;
-      overflow-y: auto;
-      padding: 15px;
-      border-radius: 8px;
-      background-color: #f7f7f7;
-      color: var(--black);
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-      border: 1px solid var(--light-grey);
-    }
-
-    #input-container {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    #user-input {
-      width: 85%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 0.9rem;
-    }
-
-    #send-button {
-      width: 12%;
-      padding: 10px;
-      background-color: var(--acu-purple);
-      color: var(--white);
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    #send-button:hover {
-      background-color: var(--dark-purple);
-    }
-
-    /* Statistics Section */
-    .statistics {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .stat-box {
-      text-align: center;
-      font-family: "Playfair Display", serif;
-      margin: 10px 0;
-    }
-
-    .stat-box h2 {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--acu-purple);
-    }
-
-    .stat-box p {
-      font-size: 1rem;
-      font-weight: normal;
-      color: var(--black);
-    }
-
-    /* Quote Section */
-    .quote {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      text-align: center;
-      color: var(--acu-purple);
-      font-style: italic;
+    @media (prefers-reduced-motion: no-preference) {
+      .shadow-button-set button {
+        will-change: transform;
+        transition: transform 0.2s ease;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <img src="images/acuLogo.png" alt="ACU Logo">
-    <nav>
-      <a href="menu.html">Menu</a>
-      <a href="#">Emergency Help</a>
-    </nav>
-  </header>
-
-  <!-- Title -->
-  <h1>ACU Mental Health Support</h1>
-
-  <!-- Chatbox -->
-  <div id="chat-container">
-    <div id="chat-box">
-      <p>Friend: Hi there! What’s your name?</p>
-    </div>
-    <div id="input-container">
-      <input type="text" id="user-input" placeholder="Type your message...">
-      <button id="send-button">Send</button>
-    </div>
-  </div>
-
-  <!-- Statistics Section -->
-  <div class="statistics">
-    <div class="stat-box">
-      <h2>18M</h2>
-      <p>College Students</p>
-    </div>
-    <div class="stat-box">
-      <h2>44%</h2>
-      <p>Mentally Struggling</p>
-    </div>
-    <div class="stat-box">
-      <h2>37%</h2>
-      <p>Anxiety Disorders</p>
-    </div>
-    <div class="stat-box">
-      <h2>15%</h2>
-      <p>Considered Suicide</p>
-    </div>
-  </div>
-
-  <!-- Quote Section -->
-  <div class="quote" id="quote">"Together, we can create a brighter tomorrow." - ACU Support Team</div>
-
-  <script>
-    const chatBox = document.getElementById("chat-box");
-    const userInput = document.getElementById("user-input");
-    const sendButton = document.getElementById("send-button");
-    const quoteElement = document.getElementById("quote");
-
-    function sendMessage() {
-      const userText = userInput.value.trim();
-      if (userText === "") return;
-
-      chatBox.innerHTML += `<p>You: ${userText}</p>`;
-      userInput.value = "";
-      chatBox.innerHTML += `<p>Friend: Thank you for sharing!</p>`;
-      chatBox.scrollTop = chatBox.scrollHeight;
-    }
-
-    sendButton.addEventListener("click", sendMessage);
-    userInput.addEventListener("keypress", function (e) {
-      if (e.key === "Enter") sendMessage();
-    });
-
-    // Random Motivational Quotes
-    const quotes = [
-      "You are stronger than you think.",
-      "Every day is a new beginning.",
-      "It's okay to not be okay. Just don't give up.",
-      "Small steps every day lead to big changes.",
-      "You are capable of amazing things.",
-      "Your mental health matters.",
-      "It's a bad day, not a bad life.",
-      "Healing takes time, but you're on the right path."
-    ];
-
-    function displayRandomQuote() {
-      const randomIndex = Math.floor(Math.random() * quotes.length);
-      quoteElement.innerText = quotes[randomIndex];
-    }
-
-    // Display a new quote on page load
-    displayRandomQuote();
-  </script>
+  <ul class="shadow-button-set">
+    <li><button>Talk to a friend</button></li>
+    <li><button>Team</button></li>
+    <li><button>About US</button></li>
+    <li><button>Settings</button></li>
+    <li><button>Quit</button></li>
+  </ul>
 </body>
 </html>
