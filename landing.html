@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MindSupport - Landing Page</title>
+  <title>ACU Mental Health Support</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
     :root {
-      --green: #4CAF50;
+      --purple: #6f42c1;
       --white: #ffffff;
       --black: #121212;
       --light-gray: #f9f9f9;
@@ -20,14 +24,13 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Playfair Display', serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       background-color: var(--light-gray);
       min-height: 100vh;
-      margin: 0;
     }
 
     .container {
@@ -46,6 +49,19 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: flex-start;
+    }
+
+    .left-content .logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .left-content .logo .material-icons {
+      font-size: 3rem;
+      color: var(--purple);
+      margin-right: 10px;
     }
 
     .left-content h1 {
@@ -65,7 +81,7 @@
       font-size: 1rem;
       font-weight: bold;
       color: var(--white);
-      background-color: var(--green);
+      background-color: var(--purple);
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -73,7 +89,7 @@
     }
 
     .left-content button:hover {
-      background-color: #45a049;
+      background-color: #5a36a2;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     }
 
@@ -98,14 +114,19 @@
   <div class="container">
     <!-- Left Content -->
     <div class="left-content">
-      <h1>MindSupport</h1>
-      <p>Communicate your feelings, receive support, track progress, and customize settings.</p>
+      <!-- Logo -->
+      <div class="logo">
+        <span class="material-icons">psychology</span>
+        <h2>ACU Mental Health</h2>
+      </div>
+      <h1>Support That Cares</h1>
+      <p>Communicate your feelings, receive support, track progress, and customize settings. Together, we can create a brighter tomorrow.</p>
       <button onclick="goToChat()">Chat Now</button>
     </div>
 
     <!-- Right Content -->
     <div class="right-content">
-      <img src="images/acuLOGO.png" alt="Dashboard Visualization">
+      <img src="https://via.placeholder.com/600x400?text=Mental+Health+Support" alt="Mental Health Support">
     </div>
   </div>
 
