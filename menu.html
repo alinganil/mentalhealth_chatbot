@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Mental Health Friend</title>
+  <title>ACU Mental Health Support</title>
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6PRibWQz6Nr9xbTChzMFM06pD0IR3O/o0PvXFY9/nqV03x5zS9E1E7yWvE9zcFo8x3qiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
-      --red: #ff3b3b;
-      --black: #121212;
-      --white: #ffffff;
-      --gradient: linear-gradient(to right, #ff5f6d, #ffc371);
       --acu-blue: #00274c;
       --acu-gold: #f7b800;
+      --white: #ffffff;
+      --light-grey: #f0f0f0;
+      --black: #121212;
     }
 
     * {
@@ -25,52 +24,62 @@
 
     body {
       font-family: "Playfair Display", serif;
-      background: var(--white);
+      background: var(--light-grey);
       color: var(--black);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
-      margin: 0;
     }
 
     header {
-      position: fixed;
-      top: 0;
       width: 100%;
-      background-color: var(--acu-blue);
-      padding: 10px 20px;
-      color: var(--white);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px 0;
+      background-color: var(--white);
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     header img {
-      height: 40px;
-    }
-
-    header a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: bold;
-      margin-left: 20px;
-      transition: color 0.3s ease-in-out;
-    }
-
-    header a:hover {
-      color: var(--acu-gold);
+      height: 80px;
+      margin-bottom: 10px;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
+      color: var(--acu-blue);
+      font-size: 2.5rem;
+      margin-top: 10px;
       text-align: center;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    }
+
+    h1 span {
+      color: var(--acu-gold);
+    }
+
+    /* Links Section */
+    .links {
+      margin: 20px 0;
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .links a {
+      padding: 15px 30px;
+      border: 2px solid var(--acu-blue);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--white);
+      background-color: var(--acu-blue);
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .links a:hover {
+      background-color: var(--acu-gold);
+      color: var(--black);
+      border-color: var(--acu-gold);
     }
 
     /* Chatbox Container */
@@ -81,6 +90,7 @@
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+      margin-top: 20px;
       text-align: left;
     }
 
@@ -93,6 +103,7 @@
       color: var(--black);
       font-size: 0.9rem;
       margin-bottom: 10px;
+      border: 1px solid var(--light-grey);
     }
 
     #input-container {
@@ -122,67 +133,40 @@
 
     #send-button:hover {
       background-color: var(--acu-gold);
-    }
-
-    /* Shadow Button Animations */
-    .shadow-button-set {
-      margin: 40px 0 0 0;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 2.5vmin;
-    }
-
-    .shadow-button-set > li {
-      display: inline-flex;
-      background: var(--acu-blue);
-    }
-
-    .shadow-button-set > li:is(:hover, :focus-within) > button:not(:active) {
-      --distance: -10px;
-    }
-
-    .shadow-button-set button {
-      appearance: none;
-      outline: none;
-      font-size: 1.5rem;
-      border: 3px solid var(--acu-blue);
-      background: var(--white);
       color: var(--black);
-      --distance: 0;
-      transform: translateX(var(--distance)) translateY(var(--distance));
-      border-radius: 5px;
+    }
+
+    /* Footer Quote Section */
+    footer {
+      margin-top: 20px;
       padding: 10px 20px;
-      cursor: pointer;
+      text-align: center;
+      color: var(--acu-blue);
+      font-style: italic;
+      background: var(--white);
+      box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
     }
 
-    @media (prefers-reduced-motion: no-preference) {
-      .shadow-button-set button {
-        will-change: transform;
-        transition: transform 0.2s ease;
-      }
+    footer span {
+      color: var(--acu-gold);
+      font-weight: bold;
     }
-
-    .shadow-button-set button:hover {
-      background: var(--acu-gold);
-      color: var(--white);
-      transform: translateX(-10px) translateY(-10px);
-    }
-
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
     <img src="images/acuLOGO.png" alt="ACU Logo">
-    <nav>
-      <a href="menu.html">Menu</a>
-      <a href="https://suicidepreventionlifeline.org/" target="_blank">Emergency Help</a>
-    </nav>
+    <h1>ACU <span>Mental Health Support</span></h1>
   </header>
 
-  <!-- Title -->
-  <h1>Your Mental Health Friend</h1>
+  <!-- Links -->
+  <div class="links">
+    <a href="menu.html">Menu</a>
+    <a href="about.html">About</a>
+    <a href="https://suicidepreventionlifeline.org/" target="_blank">Emergency Help</a>
+  </div>
 
   <!-- Chatbox -->
   <div id="chat-container">
@@ -195,14 +179,10 @@
     </div>
   </div>
 
-  <!-- Shadow Buttons -->
-  <ul class="shadow-button-set">
-    <li><button>Talk to a Friend</button></li>
-    <li><button>Team</button></li>
-    <li><button>About Us</button></li>
-    <li><button>Settings</button></li>
-    <li><button>Quit</button></li>
-  </ul>
+  <!-- Footer -->
+  <footer>
+    "Together, we can create a <span>brighter tomorrow</span>." - ACU Mental Health Support
+  </footer>
 
   <script>
     const chatBox = document.getElementById("chat-box");
