@@ -38,6 +38,24 @@
       width: 45%;
     }
 
+    .brand {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand-icon {
+      font-size: 2rem;
+      color: #7BCC3F; /* Icon color */
+      margin-right: 0.5rem;
+    }
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #000; /* Black font for brand name */
+    }
+
     .text-content h1 {
       font-size: 2.5rem;
       font-weight: 700;
@@ -85,16 +103,23 @@
   </style>
   <!-- Add a link to Google Fonts for 'Inter' -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Add Google Fonts Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <div class="container">
     <div class="text-content">
-      <h1>Self-care</h1>
+      <!-- Brand Section -->
+      <div class="brand">
+        <span class="material-icons brand-icon">spa</span>
+        <span class="brand-name">MindSupport</span>
+      </div>
+      <h1>Wildcat Self-Care</h1>
       <p>Communicate your feelings, receive support, track progress, and customize settings.</p>
-      <button>Join now</button>
+      <button>Chat now</button>
     </div>
     <div class="image-content">
-      <img src="images/image.png" alt="MindSupport Dashboard">
+      <img src="images/Landpage.png" alt="MindSupport Dashboard">
     </div>
   </div>
 </body>
