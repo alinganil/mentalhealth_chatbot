@@ -3,18 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Mental Health Friend</title>
-  <!-- Fonts -->
+  <title>ACU Mental Health Support</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6PRibWQz6Nr9xbTChzMFM06pD0IR3O/o0PvXFY9/nqV03x5zS9E1E7yWvE9zcFo8x3qiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
-      --red: #ff3b3b;
-      --black: #121212;
+      --acu-purple: #5e4780;
+      --light-grey: #f9f9f9;
       --white: #ffffff;
-      --gradient: linear-gradient(to right, #ff5f6d, #ffc371);
-      --acu-blue: #00274c;
-      --acu-gold: #f7b800;
+      --gradient: linear-gradient(to right, #5e4780, #9c88cc);
+      --dark-purple: #3c285c;
     }
 
     * {
@@ -25,48 +22,49 @@
 
     body {
       font-family: "Playfair Display", serif;
-      background: var(--white);
+      background: var(--light-grey);
       color: var(--black);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
-      margin: 0;
     }
 
     header {
-      position: fixed;
-      top: 0;
       width: 100%;
-      background-color: var(--acu-blue);
-      padding: 10px 20px;
-      color: var(--white);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: var(--white);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     header img {
-      height: 40px;
+      height: 50px;
     }
 
-    header a {
-      color: var(--white);
+    header nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    header nav a {
       text-decoration: none;
+      color: var(--acu-purple);
+      font-size: 1rem;
       font-weight: bold;
-      margin-left: 20px;
-      transition: color 0.3s ease-in-out;
+      transition: color 0.3s ease;
     }
 
-    header a:hover {
-      color: var(--acu-gold);
+    header nav a:hover {
+      color: var(--dark-purple);
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
+      font-size: 2.8rem;
+      margin: 30px 0 20px;
       text-align: center;
       background: var(--gradient);
       -webkit-background-clip: text;
@@ -82,6 +80,7 @@
       border-radius: 12px;
       box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
       text-align: left;
+      margin: 20px auto;
     }
 
     #chat-box {
@@ -93,6 +92,7 @@
       color: var(--black);
       font-size: 0.9rem;
       margin-bottom: 10px;
+      border: 1px solid var(--light-grey);
     }
 
     #input-container {
@@ -111,7 +111,7 @@
     #send-button {
       width: 12%;
       padding: 10px;
-      background-color: var(--acu-blue);
+      background-color: var(--acu-purple);
       color: var(--white);
       border: none;
       border-radius: 8px;
@@ -121,31 +121,7 @@
     }
 
     #send-button:hover {
-      background-color: var(--acu-gold);
-    }
-
-    /* Footer Menu Button */
-    .menu-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: var(--acu-blue);
-      color: var(--white);
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.3s ease;
-    }
-
-    .menu-button:hover {
-      background-color: var(--acu-gold);
+      background-color: var(--dark-purple);
     }
 
     /* Statistics Section */
@@ -154,16 +130,19 @@
       display: flex;
       justify-content: center;
       gap: 30px;
+      flex-wrap: wrap;
     }
 
     .stat-box {
       text-align: center;
+      font-family: "Playfair Display", serif;
+      margin: 10px 0;
     }
 
     .stat-box h2 {
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: bold;
-      color: var(--acu-blue);
+      color: var(--acu-purple);
     }
 
     .stat-box p {
@@ -171,20 +150,29 @@
       font-weight: normal;
       color: var(--black);
     }
+
+    /* Quote Section */
+    .quote {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      text-align: center;
+      color: var(--acu-purple);
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
-    <img src="images/acuLOGO.png" alt="ACU Logo">
+    <img src="images/acuLogo.png" alt="ACU Logo">
     <nav>
       <a href="menu.html">Menu</a>
-      <a href="https://suicidepreventionlifeline.org/" target="_blank">Emergency Help</a>
+      <a href="#">Emergency Help</a>
     </nav>
   </header>
 
   <!-- Title -->
-  <h1>Your Mental Health Friend</h1>
+  <h1>ACU Mental Health Support</h1>
 
   <!-- Chatbox -->
   <div id="chat-container">
@@ -217,17 +205,14 @@
     </div>
   </div>
 
-  <!-- Menu Button -->
-  <button class="menu-button" onclick="window.location.href='menu.html'">
-    <i class="fas fa-bars"></i>
-  </button>
+  <!-- Quote Section -->
+  <div class="quote" id="quote">"Together, we can create a brighter tomorrow." - ACU Support Team</div>
 
   <script>
     const chatBox = document.getElementById("chat-box");
     const userInput = document.getElementById("user-input");
     const sendButton = document.getElementById("send-button");
-
-    let userName = "";
+    const quoteElement = document.getElementById("quote");
 
     function sendMessage() {
       const userText = userInput.value.trim();
@@ -235,14 +220,7 @@
 
       chatBox.innerHTML += `<p>You: ${userText}</p>`;
       userInput.value = "";
-
-      if (!userName) {
-        userName = userText;
-        chatBox.innerHTML += `<p>Friend: Nice to meet you, ${userName}. How are you feeling today?</p>`;
-      } else {
-        chatBox.innerHTML += `<p>Friend: I'm here to listen, ${userName}. Tell me more!</p>`;
-      }
-
+      chatBox.innerHTML += `<p>Friend: Thank you for sharing!</p>`;
       chatBox.scrollTop = chatBox.scrollHeight;
     }
 
@@ -250,6 +228,26 @@
     userInput.addEventListener("keypress", function (e) {
       if (e.key === "Enter") sendMessage();
     });
+
+    // Random Motivational Quotes
+    const quotes = [
+      "You are stronger than you think.",
+      "Every day is a new beginning.",
+      "It's okay to not be okay. Just don't give up.",
+      "Small steps every day lead to big changes.",
+      "You are capable of amazing things.",
+      "Your mental health matters.",
+      "It's a bad day, not a bad life.",
+      "Healing takes time, but you're on the right path."
+    ];
+
+    function displayRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      quoteElement.innerText = quotes[randomIndex];
+    }
+
+    // Display a new quote on page load
+    displayRandomQuote();
   </script>
 </body>
 </html>
