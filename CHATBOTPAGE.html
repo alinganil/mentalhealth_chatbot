@@ -7,75 +7,84 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6PRibWQz6Nr9xbTChzMFM06pD0IR3O/o0PvXFY9/nqV03x5zS9E1E7yWvE9zcFo8x3qiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Link to external CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
-    <h1><i class="fas fa-leaf"></i> MindSupport</h1>
+    <div class="logo">
+      <i class="fas fa-leaf"></i> <span>MindSupport</span>
+    </div>
     <nav>
       <a href="index.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="emergency.html">Emergency Help</a>
+      <a href="team.html">Team</a>
+      <a href="problem.html">Problem</a>
+      <a href="solutions.html">Solutions</a>
     </nav>
   </header>
 
-  <div class="container">
-    <!-- Stats Section -->
-    <div class="stats">
-      <div class="stat">
-        <i class="fas fa-user-graduate"></i>
-        <h3>18.5M</h3>
-        <span>College Students</span>
-      </div>
-      <div class="stat">
-        <i class="fas fa-brain"></i>
-        <h3>60%</h3>
-        <span>Report Mental Health Struggles</span>
-      </div>
-      <div class="stat">
-        <i class="fas fa-heartbeat"></i>
-        <h3>31%</h3>
-        <span>Have Anxiety Disorders</span>
-      </div>
-      <div class="stat">
-        <i class="fas fa-exclamation-circle"></i>
-        <h3>15%</h3>
-        <span>Considered Suicide</span>
-      </div>
-    </div>
+  <main>
+    <div class="container">
+      <!-- Left Sidebar (Stats) -->
+      <aside class="stats">
+        <div class="stat">
+          <h3>18.58 M</h3>
+          <p>Total College Students in the U.S.</p>
+        </div>
+        <div class="stat">
+          <h3>60%</h3>
+          <p>Students Reporting Mental Health Struggles</p>
+        </div>
+        <div class="stat">
+          <h3>31%</h3>
+          <p>Students with Anxiety Disorders</p>
+        </div>
+        <div class="stat">
+          <h3>15%</h3>
+          <p>Students Who Have Considered Suicide</p>
+        </div>
+        <div class="support">
+          <i class="fas fa-heart"></i> <p>We are here for you!</p>
+        </div>
+      </aside>
 
-    <!-- Chatbox Section -->
-    <div class="chatbox">
-      <div class="chatbox-header">
-        <h3>ACU Mental Wellness Chat</h3>
-        <span>Online</span>
-      </div>
-      <div class="chatbox-body">
-        <p><strong>User:</strong> Hi, I need advice on managing stress during exams.</p>
-        <p><strong>Support:</strong> Hi [User]! Let’s work together to find techniques that help you feel calm and focused.</p>
-      </div>
-      <div class="chatbox-footer">
-        <input type="text" placeholder="Type your message...">
-        <button>Send</button>
-      </div>
-    </div>
+      <!-- Chatbox Section -->
+      <section class="chatbox">
+        <div class="chatbox-header">
+          <h3>Wildcat Self-Care</h3>
+          <span>Online</span>
+        </div>
+        <div class="chatbox-body">
+          <div class="message user">
+            <p>Hello, I need some advice on managing my stress levels during exams.</p>
+          </div>
+          <div class="message support">
+            <p>Of course! Let’s explore some techniques that can help you stay calm and focused.</p>
+          </div>
+        </div>
+        <div class="chatbox-footer">
+          <input type="text" placeholder="Type your message..." />
+          <button>Send</button>
+        </div>
+      </section>
 
-    <!-- Quick Links -->
-    <div class="quick-links">
-      <h3>Quick Links</h3>
-      <p><a href="https://988lifeline.org/">Emergency Contact</a></p>
-      <p><a href="https://acu.edu/medical-and-counseling-care/medical-clinic/mental-health-services/">ACU Resources</a></p>
+      <!-- Right Sidebar -->
+      <aside class="quick-links">
+        <div>
+          <h3>Quick Links</h3>
+          <a href="https://988lifeline.org/">Emergency Contacts</a>
+          <a href="https://acu.edu/medical-and-counseling-care/">ACU Soar</a>
+        </div>
+        <div class="motivation">
+          <h3>Motivation</h3>
+          <p>"Every day may not be good, but there’s something good in every day."</p>
+        </div>
+      </aside>
     </div>
-
-    <!-- Motivation -->
-    <div class="motivation">
-      <p>"Every day may not be good, but there’s something good in every day."</p>
-    </div>
-  </div>
+  </main>
 
   <footer>
-    Disclaimer: This project is for educational purposes. <a href="#">Learn more</a>
+    <p>Disclaimer: This project is for educational purposes. <a href="#">Learn more</a></p>
+    <p><a href="how-it-works.html">How it works</a></p>
   </footer>
 </body>
 </html>
