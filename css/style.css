@@ -47,7 +47,7 @@ header .logo {
 
 header .logo i {
   font-size: 2.5rem; /* Icon size */
-  color: var(--primary-color); /* Green color for the icon */
+  color: #7BCC3F ; /* Green color for the icon */
 }
 
 header .logo span {
