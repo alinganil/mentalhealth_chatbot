@@ -34,16 +34,16 @@ header {
 }
 
 header .logo {
-  font-size: 1.8rem;
-  color: var(--primary-color);
   display: flex;
   align-items: center;
+  font-size: 1.8rem;
+  color: var(--primary-color);
   gap: 10px;
+  font-weight: bold;
 }
 
-header .logo .material-icons {
-  font-size: 2rem;
-  color: var(--primary-color);
+header .logo i {
+  font-size: 2rem; /* Adjust icon size */
 }
 
 header nav a {
@@ -100,10 +100,9 @@ header nav a:hover {
   color: var(--primary-color);
 }
 
-.stats .support .material-icons {
-  font-size: 1.5rem;
-  color: var(--primary-color);
+.stats .support i {
   margin-right: 10px;
+  font-size: 1.5rem;
 }
 
 .chatbox {
@@ -171,14 +170,12 @@ header nav a:hover {
 
 footer {
   width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   background: var(--footer-bg);
   color: var(--white);
   padding: 10px;
   text-align: center;
-  z-index: 100;
+  position: fixed;
+  bottom: 0;
 }
 
 footer a {
