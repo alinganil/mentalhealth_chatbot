@@ -6,9 +6,9 @@
 }
 
 html, body {
-  font-family: 'Inter', sans-serif;
-  background-color: #ffffff; /* White background */
-  color: #000; /* Black text */
+  font-family: 'Inter', sans-serif; /* Matching the font */
+  background-color: #ffffff;
+  color: #000;
   height: 100%;
   margin: 0;
   display: flex;
@@ -20,7 +20,7 @@ html, body {
 /* Header */
 header {
   width: 100%;
-  background-color: #ffffff; /* White background */
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -140,7 +140,7 @@ footer {
   background-color: #000; /* Black background */
   color: #ffffff; /* White text */
   padding: 10px 20px;
-  position: absolute;
+  position: fixed; /* Ensures it stays at the bottom */
   bottom: 0;
 }
 
