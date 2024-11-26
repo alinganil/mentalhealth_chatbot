@@ -21,72 +21,87 @@
     <a href="solutions.html">Solutions</a>
   </nav>
 </header>
-  <main>
-    <div class="container">
-      <!-- Left Sidebar (Stats) -->
-      <aside class="stats">
-        <div class="stat">
-          <h3>18.58 M</h3>
-          <p>Total College Students in the U.S.</p>
-        </div>
-        <div class="stat">
-          <h3>60%</h3>
-          <p>Students Reporting Mental Health Struggles</p>
-        </div>
-        <div class="stat">
-          <h3>31%</h3>
-          <p>Students with Anxiety Disorders</p>
-        </div>
-        <div class="stat">
-          <h3>15%</h3>
-          <p>Students Who Have Considered Suicide</p>
-        </div>
-        <div class="support">
-          <span class="material-icons">favorite</span> <!-- Material Icons 'favorite' for heart -->
-          <p>We are here for you!</p>
-        </div>
-      </aside>
+<main>
+  <div class="container">
+    <!-- Left Sidebar (Stats) -->
+    <aside class="stats">
+      <div class="stat">
+        <h3>18.58 M</h3>
+        <p>Total College Students in the U.S.</p>
+      </div>
+      <div class="stat">
+        <h3>60%</h3>
+        <p>Students Reporting Mental Health Struggles</p>
+      </div>
+      <div class="stat">
+        <h3>31%</h3>
+        <p>Students with Anxiety Disorders</p>
+      </div>
+      <div class="stat">
+        <h3>15%</h3>
+        <p>Students Who Have Considered Suicide</p>
+      </div>
+      <div class="support">
+        <span class="material-icons">favorite</span> <!-- Material Icons 'favorite' for heart -->
+        <p>We are here for you!</p>
+      </div>
+    </aside>
 
-      <!-- Chatbox Section -->
-      <section class="chatbox">
-        <div class="chatbox-header">
-          <h3>Wildcat Self-Care</h3>
-          <span>Online</span>
+    <!-- Chatbox Section -->
+    <section class="chatbox">
+      <div class="chatbox-header">
+        <h3>Wildcat Self-Care</h3>
+        <span>Online</span>
+      </div>
+      <div class="chatbox-body">
+        <div class="message user">
+          <p>Hello, I need some advice on managing my stress levels during exams.</p>
         </div>
-        <div class="chatbox-body">
-          <div class="message user">
-            <p>Hello, I need some advice on managing my stress levels during exams.</p>
-          </div>
-          <div class="message support">
-            <p>Of course! Let’s explore some techniques that can help you stay calm and focused.</p>
-          </div>
+        <div class="message support">
+          <p>Of course! Let’s explore some techniques that can help you stay calm and focused.</p>
         </div>
-        <div class="chatbox-footer">
-          <input type="text" placeholder="Type your message..." />
-          <button>Send</button>
-        </div>
-      </section>
+      </div>
+      <div class="chatbox-footer">
+        <input type="text" placeholder="Type your message..." />
+        <button>Send</button>
+      </div>
+    </section>
 
-      <!-- Right Sidebar -->
-      <aside class="quick-links">
-        <div>
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="https://988lifeline.org/">Emergency Contacts</a></li>
-            <li><a href="https://acu.edu/medical-and-counseling-care/">ACU Soar</a></li>
-          </ul>
-        </div>
-        <div class="motivation">
-          <h3>Motivation</h3>
-          <p>"Every day may not be good, but there’s something good in every day."</p>
-        </div>
-      </aside>
-    </div>
-  </main>
+    <!-- Right Sidebar -->
+    <aside class="quick-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="https://988lifeline.org/" target="_blank">Emergency Contacts</a></li>
+        <li><a href="https://acu.edu/medical-and-counseling-care/" target="_blank">ACU Soar</a></li>
+        <li><a href="https://www.nimh.nih.gov/" target="_blank">NIMH Resources</a></li>
+        <li><a href="https://www.mentalhealth.gov/" target="_blank">MentalHealth.gov</a></li>
+      </ul>
+      <div class="motivation">
+        <h3>Motivation</h3>
+        <p id="motivational-quote">"Loading inspirational quote..."</p>
+      </div>
+    </aside>
+  </div>
+</main>
+<footer>
+  <p>Disclaimer: This project is for educational purposes. <a href="#">Learn more</a></p>
+  <p><a href="how-it-works.html">How it works</a></p>
+</footer>
+<script>
+  const quotes = [
+    "Believe you can and you're halfway there.",
+    "Every day may not be good, but there's something good in every day.",
+    "You are never too old to set another goal or to dream a new dream.",
+    "Keep your face always toward the sunshine—and shadows will fall behind you.",
+    "Success is not final, failure is not fatal: It is the courage to continue that counts."
+  ];
 
-  <footer>
-    <p>Disclaimer: This project is for educational purposes. <a href="#">Learn more</a></p>
-    <p><a href="how-it-works.html">How it works</a></p>
-  </footer>
+  function displayRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    document.getElementById('motivational-quote').textContent = quotes[randomIndex];
+  }
+
+  window.onload = displayRandomQuote;
+</script>
 </body>
 </html>
