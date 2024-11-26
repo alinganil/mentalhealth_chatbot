@@ -23,32 +23,31 @@ body {
   min-height: 100vh;
 }
 
+/* HEADER */
 header {
   width: 100%;
-  padding: 20px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 10;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 header .logo {
   display: flex;
   align-items: center;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--primary-color);
-  gap: 10px;
   font-weight: bold;
+  gap: 10px;
 }
 
 header .logo i {
-  font-size: 2rem; /* FontAwesome icon size */
-}
-
-header .logo .logo-img {
-  width: 30px; /* Adjust as needed */
-  height: auto;
+  font-size: 2.5rem;
 }
 
 header nav a {
@@ -67,6 +66,7 @@ header nav a:hover {
   color: var(--white);
 }
 
+/* MAIN CONTAINER */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -76,7 +76,7 @@ header nav a:hover {
   margin: 20px auto;
 }
 
-/* Quick Links Section */
+/* QUICK LINKS SECTION */
 .quick-links {
   background: var(--white);
   border-radius: 10px;
@@ -113,7 +113,7 @@ header nav a:hover {
   color: #218838; /* Darker green for hover */
 }
 
-/* Motivation Section */
+/* MOTIVATION SECTION */
 .motivation {
   margin-top: 20px;
   padding: 15px;
@@ -125,7 +125,7 @@ header nav a:hover {
   color: var(--text-color);
 }
 
-/* Stats Section */
+/* STATS SECTION */
 .stats .stat {
   margin-bottom: 20px;
   text-align: center;
@@ -153,70 +153,90 @@ header nav a:hover {
   font-size: 1.5rem;
 }
 
-/* Chatbox Section */
+/* CHATBOX SECTION */
 .chatbox {
   background: var(--white);
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
 }
 
 .chatbox-header {
   background: var(--primary-color);
   color: var(--white);
-  padding: 10px 15px;
-  border-radius: 10px 10px 0 0;
+  padding: 15px 20px;
+  border-radius: 15px 15px 0 0;
+  font-size: 1.2rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .chatbox-body {
-  padding: 15px;
-  flex: 1;
+  padding: 20px;
+  height: 400px; /* Increased for larger chat display */
   overflow-y: auto;
+  background: #f9f9f9;
+  border-radius: 0 0 15px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .chatbox-body .message {
-  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
 }
 
 .chatbox-body .user {
-  text-align: left;
-  color: var(--text-color);
+  align-self: flex-start;
+  background-color: var(--primary-color);
+  color: var(--white);
 }
 
 .chatbox-body .support {
-  text-align: left;
-  background: var(--secondary-color);
+  align-self: flex-end;
+  background-color: var(--secondary-color);
   color: var(--text-color);
-  padding: 10px;
-  border-radius: 10px;
 }
 
 .chatbox-footer {
   display: flex;
-  padding: 10px 15px;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 .chatbox-footer input {
   flex: 1;
-  padding: 10px;
+  padding: 15px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
+  font-size: 1rem;
 }
 
 .chatbox-footer button {
   background: var(--primary-color);
   color: var(--white);
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
+  padding: 15px 20px;
+  border-radius: 10px;
   font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
 }
 
+.chatbox-footer button:hover {
+  background: #218838; /* Darker green hover effect */
+}
+
+/* FOOTER */
 footer {
   width: 100%;
   background: var(--footer-bg);
