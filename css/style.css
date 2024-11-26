@@ -41,14 +41,17 @@ header .logo {
   display: flex;
   align-items: center;
   font-size: 2rem;
-  color: #000000;
   font-weight: bold;
   gap: 10px;
 }
 
 header .logo i {
-  font-size: 2.5rem;
-  color: #7BCC3F;
+  font-size: 2.5rem; /* Icon size */
+  color: var(--primary-color); /* Green color for the icon */
+}
+
+header .logo span {
+  color: var(--text-color); /* Black color for the text */
 }
 
 header nav a {
