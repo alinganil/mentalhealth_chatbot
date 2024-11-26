@@ -43,8 +43,14 @@ header .logo {
 }
 
 header .logo i {
-  font-size: 2rem; /* Adjust icon size */
+  font-size: 2rem; /* FontAwesome icon size */
 }
+
+header .logo .logo-img {
+  width: 30px; /* Adjust as needed */
+  height: auto;
+}
+
 
 header nav a {
   text-decoration: none;
