@@ -41,7 +41,7 @@ header .logo {
   display: flex;
   align-items: center;
   font-size: 2rem;
-  color: var(--primary-color);
+  color: #000000;
   font-weight: bold;
   gap: 10px;
 }
