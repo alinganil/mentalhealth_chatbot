@@ -41,6 +41,11 @@ header .logo {
   gap: 10px;
 }
 
+header .logo .material-icons {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
 header nav a {
   text-decoration: none;
   font-weight: bold;
@@ -95,9 +100,10 @@ header nav a:hover {
   color: var(--primary-color);
 }
 
-.stats .support i {
-  margin-right: 10px;
+.stats .support .material-icons {
   font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-right: 10px;
 }
 
 .chatbox {
@@ -165,10 +171,14 @@ header nav a:hover {
 
 footer {
   width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   background: var(--footer-bg);
   color: var(--white);
   padding: 10px;
   text-align: center;
+  z-index: 100;
 }
 
 footer a {
