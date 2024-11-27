@@ -31,8 +31,8 @@ function getResponse(input) {
   return "I'm sorry, I didn't quite understand that. Could you try asking something else?";
 }
 
-// Event listener for the send button
-sendBtn.addEventListener("click", () => {
+// Function to handle sending a message
+function handleSendMessage() {
   const userInput = chatInput.value.trim();
   if (!userInput) return;
 
@@ -43,4 +43,15 @@ sendBtn.addEventListener("click", () => {
   // Get and display bot's response
   const botResponse = getResponse(userInput);
   addMessage(botResponse, "support");
+}
+
+// Event listener for the send button
+sendBtn.addEventListener("click", handleSendMessage);
+
+// Event listener for pressing Enter in the input field
+chatInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    handleSendMessage();
+    event.preventDefault(); // Prevent form submission or other default actions
+  }
 });
