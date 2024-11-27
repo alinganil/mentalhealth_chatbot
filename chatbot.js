@@ -1,64 +1,46 @@
-// Sample chatbot.js file implementation for your project
+const chatboxBody = document.getElementById("chatbox-body");
+const chatInput = document.getElementById("chat-input");
+const sendBtn = document.getElementById("send-btn");
 
-// Define danger signals
-const dangerSignals = ["kill myself", "end my life", "no hope", "suicide", "self harm"];
+// Pre-built responses
+const responses = {
+  "hello": "Hi there! How can I assist you today?",
+  "stress": "Managing stress is important. Consider deep breathing, mindfulness, or taking short breaks.",
+  "exam": "Exams can be tough! Make sure to get plenty of rest and stay organized.",
+  "help": "I'm here to assist! Let me know what you need help with.",
+  "bye": "Goodbye! Take care of yourself and stay positive."
+};
 
-// Function to check for danger signals in a user's message
-function checkForDangerSignals(message) {
-    return dangerSignals.some(signal => message.toLowerCase().includes(signal));
+// Function to add a message to the chatbox
+function addMessage(text, sender = "user") {
+  const message = document.createElement("div");
+  message.className = `message ${sender}`;
+  message.textContent = text;
+  chatboxBody.appendChild(message);
+  chatboxBody.scrollTop = chatboxBody.scrollHeight; // Scroll to the bottom
 }
 
-// Function to handle user messages
-function handleMessage(userMessage) {
-    if (checkForDangerSignals(userMessage)) {
-        // Send an alert email
-        fetch('/api/send-email', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                message: userMessage, 
-                email: "axg21n@acu.edu" 
-            })
-        })
-        .then(response => response.json())
-        .then(data => console.log('Email sent:', data))
-        .catch(error => console.error('Error:', error));
-    } else {
-        // Normal chatbot response logic
-        generateBotResponse(userMessage);
+// Function to get a response based on the user's input
+function getResponse(input) {
+  input = input.toLowerCase(); // Convert input to lowercase for matching
+  for (const keyword in responses) {
+    if (input.includes(keyword)) {
+      return responses[keyword];
     }
+  }
+  return "I'm sorry, I didn't quite understand that. Could you try asking something else?";
 }
 
-// Function to generate a bot response (expand based on your logic)
-function generateBotResponse(userMessage) {
-    let botResponse;
-    switch(userMessage.toLowerCase()) {
-        case 'hello':
-            botResponse = 'Hi there! How can I help you today?';
-            break;
-        case 'help':
-            botResponse = 'I’m here to assist. Please tell me more about how you’re feeling.';
-            break;
-        default:
-            botResponse = 'I’m sorry, I didn’t understand that. Could you please elaborate?';
-    }
-    displayBotMessage(botResponse);
-}
+// Event listener for the send button
+sendBtn.addEventListener("click", () => {
+  const userInput = chatInput.value.trim();
+  if (!userInput) return;
 
-// Function to display the bot's message (implement UI interaction)
-function displayBotMessage(message) {
-    const chatWindow = document.getElementById('chatWindow');
-    const botMessage = document.createElement('div');
-    botMessage.className = 'bot-message';
-    botMessage.innerText = message;
-    chatWindow.appendChild(botMessage);
-}
+  // Display user's message
+  addMessage(userInput, "user");
+  chatInput.value = "";
 
-// Event listener for user input
-document.getElementById('sendButton').addEventListener('click', () => {
-    const userMessage = document.getElementById('userInput').value;
-    if (userMessage) {
-        handleMessage(userMessage);
-        document.getElementById('userInput').value = ''; // Clear input field
-    }
+  // Get and display bot's response
+  const botResponse = getResponse(userInput);
+  addMessage(botResponse, "support");
 });
