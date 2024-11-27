@@ -1,19 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Problem Statement</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindSupport | Problem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --primary-color: #7BCC3F;
+      --secondary-color: #F1F8EC;
+      --text-color: #000000;
+      --white: #ffffff;
+      --background-color: #F7F7F7;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    header {
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--white);
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo .material-icons {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+    }
+
+    .logo span {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--text-color);
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--primary-color);
+      padding: 8px 15px;
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      margin-right: 10px;
+    }
+
+    nav a:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    .problem-intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .problem-intro p {
+      font-size: 1.2rem;
+      color: var(--text-color);
+      margin: 10px 0;
+    }
+
+    .problem-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .problem-item {
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .problem-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .problem-item h2 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .problem-item p {
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    footer {
+      width: 100%;
+      background-color: #000000;
+      color: var(--white);
+      text-align: center;
+      padding: 20px;
+      position: fixed;
+      bottom: 0;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Identified Problem</h1>
-    </header>
-    <main>
-        <section>
-            <p>The primary problem we are addressing is the lack of accessible mental health resources. Many individuals struggle to find the right tools and information to manage their mental health.</p>
-        </section>
-    </main>
+  <header>
+    <div class="logo">
+      <span class="material-icons">spa</span>
+      <span>MindSupport</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="problem-intro">
+      <h1>Understanding the Problem</h1>
+      <p>Our team identified critical mental health challenges affecting college students. Below, we highlight the key issues that drive our mission to create impactful solutions.</p>
+    </div>
+
+    <div class="problem-section">
+      <div class="problem-item">
+        <h2>Prevalence of Mental Health Issues</h2>
+        <p>Recent studies show that over 60% of college students report struggling with mental health challenges, such as anxiety and depression. These issues significantly impact academic performance and overall well-being.</p>
+      </div>
+      <div class="problem-item">
+        <h2>Lack of Accessible Resources</h2>
+        <p>Many students are unaware of available mental health resources or find it challenging to access help due to stigma, financial constraints, or logistical barriers.</p>
+      </div>
+      <div class="problem-item">
+        <h2>Social Isolation</h2>
+        <p>Social isolation, amplified by the pandemic and increased reliance on virtual platforms, has left students feeling disconnected and unsupported.</p>
+      </div>
+      <div class="problem-item">
+        <h2>Academic Stress</h2>
+        <p>The pressure to excel academically often leads to burnout, decreased productivity, and adverse effects on mental health.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2024 MindSupport
+  </footer>
 </body>
 </html>
