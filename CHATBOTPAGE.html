@@ -6,19 +6,218 @@
   <title>MindSupport</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --primary-color: #7BCC3F;
+      --secondary-color: #F1F8EC;
+      --text-color: #000000;
+      --white: #ffffff;
+      --background-color: #F7F7F7;
+      --hover-bg: rgba(123, 204, 63, 0.2);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      background-color: var(--white);
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo .material-icons {
+      font-size: 2rem;
+      color: var(--primary-color);
+    }
+
+    .logo span {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--text-color);
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    nav a {
+      position: relative;
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--hover-bg);
+      transform: translateY(-3px);
+    }
+
+    nav a::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--primary-color);
+      color: var(--white);
+      font-size: 0.8rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a:hover::after {
+      opacity: 1;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .stats {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat h3 {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      margin: 0;
+    }
+
+    .stat p {
+      font-size: 1rem;
+      color: var(--text-color);
+    }
+
+    .chatbox {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .chatbox-header {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 10px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chatbox-body {
+      flex-grow: 1;
+      padding: 10px;
+    }
+
+    .message {
+      margin: 10px 0;
+    }
+
+    .message.user {
+      text-align: left;
+    }
+
+    .message.support {
+      text-align: right;
+      color: var(--primary-color);
+    }
+
+    .chatbox-footer {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid #eee;
+    }
+
+    .chatbox-footer input {
+      flex-grow: 1;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .chatbox-footer button {
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .quick-links, .personal-tips {
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .personal-tips h3, .quick-links h3 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: var(--text-color);
+      color: var(--white);
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
 <header>
   <div class="logo">
-    <span class="material-icons logo-img" style="color: #7BCC3F;">spa</span> <!-- Green icon -->
-    <span style="color: #000000;">MindSupport</span> <!-- Black text -->
+    <span class="material-icons">spa</span>
+    <span>MindSupport</span>
   </div>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="team.html">Team</a>
-    <a href="problem.html">Problem</a>
-    <a href="solutions.html">Solutions</a>
+    <a href="index.html" data-tooltip="Home"><span class="material-icons">home</span></a>
+    <a href="team.html" data-tooltip="Team"><span class="material-icons">group</span></a>
+    <a href="problem.html" data-tooltip="Problem"><span class="material-icons">help_outline</span></a>
+    <a href="solutions.html" data-tooltip="Solutions"><span class="material-icons">lightbulb</span></a>
   </nav>
 </header>
 <main>
@@ -41,10 +240,6 @@
         <h3>15%</h3>
         <p>Students Who Have Considered Suicide</p>
       </div>
-      <div class="support">
-        <span class="material-icons">favorite</span> <!-- Material Icons 'favorite' for heart -->
-        <p>We are here for you!</p>
-      </div>
     </aside>
 
     <!-- Chatbox Section -->
@@ -62,46 +257,36 @@
         </div>
       </div>
       <div class="chatbox-footer">
-        <input type="text" placeholder="Type your message..." />
+        <input type="text" placeholder="Type your message...">
         <button>Send</button>
       </div>
     </section>
 
     <!-- Right Sidebar -->
-    <aside class="quick-links">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="https://988lifeline.org/" target="_blank">Emergency Contacts</a></li>
-        <li><a href="https://acu.edu/medical-and-counseling-care/" target="_blank">ACU Soar</a></li>
-        <li><a href="https://www.nimh.nih.gov/" target="_blank">NIMH Resources</a></li>
-        <li><a href="https://www.mentalhealth.gov/" target="_blank">MentalHealth.gov</a></li>
-      </ul>
-      <div class="motivation">
-        <h3>Motivation</h3>
-        <p id="motivational-quote">"Loading inspirational quote..."</p>
-      </div>
+    <aside class="personal-tips">
+      <h3>Personal Tips</h3>
+      <p id="personal-tip">"Loading personalized tip..."</p>
     </aside>
   </div>
 </main>
 <footer>
-  <p>Disclaimer: This project is for educational purposes. <a href="#">Learn more</a></p>
-  <p><a href="how-it-works.html">How it works</a></p>
+  <p>Disclaimer: This project is for educational purposes only.</p>
 </footer>
 <script>
-  const quotes = [
-    "Believe you can and you're halfway there.",
-    "Every day may not be good, but there's something good in every day.",
-    "You are never too old to set another goal or to dream a new dream.",
-    "Keep your face always toward the sunshine—and shadows will fall behind you.",
-    "Success is not final, failure is not fatal: It is the courage to continue that counts."
+  const personalTips = [
+    "Take a 5-minute break every hour to stretch and relax.",
+    "Practice deep breathing to reduce stress instantly.",
+    "Keep a gratitude journal to focus on the positive aspects of life.",
+    "Stay hydrated and eat nourishing meals during study sessions.",
+    "Limit social media usage to avoid unnecessary stress."
   ];
 
-  function displayRandomQuote() {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    document.getElementById('motivational-quote').textContent = quotes[randomIndex];
+  function displayRandomTip() {
+    const randomIndex = Math.floor(Math.random() * personalTips.length);
+    document.getElementById('personal-tip').textContent = personalTips[randomIndex];
   }
 
-  window.onload = displayRandomQuote;
+  window.onload = displayRandomTip;
 </script>
 </body>
 </html>
