@@ -22,24 +22,24 @@
       color: var(--text-color);
     }
 
-    header {
-      width: 100%;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--white);
-      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+  header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* Logo in the center */
+  align-items: center;
+  padding: 20px 40px;
+  background-color: var(--white);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+.logo {
+  grid-column: 2; /* Center column for the logo */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
     .logo .material-icons {
       font-size: 1.8rem;
