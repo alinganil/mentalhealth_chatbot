@@ -5,12 +5,156 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solutions</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --primary-color: #7BCC3F;
+      --secondary-color: #F1F8EC;
+      --text-color: #000000;
+      --white: #ffffff;
+      --background-color: #F7F7F7;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    header {
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--white);
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo .material-icons {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+    }
+
+    .logo span {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--text-color);
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--primary-color);
+      padding: 8px 15px;
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      margin-right: 10px;
+    }
+
+    nav a:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    .solutions-intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .solutions-intro p {
+      font-size: 1.2rem;
+      color: var(--text-color);
+      margin: 10px 0;
+    }
+
+    .solution-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .solution-item {
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .solution-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .solution-item h2 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .solution-item ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .solution-item ul li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .solution-item ul li .material-icons {
+      color: var(--primary-color);
+    }
+
+    footer {
+      width: 100%;
+      background-color: var(--primary-color);
+      color: var(--white);
+      text-align: center;
+      padding: 20px;
+      position: fixed;
+      bottom: 0;
+    }
+
+    footer a {
+      color: var(--white);
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="logo">
-      <span class="material-icons logo-icon">spa</span>
+      <span class="material-icons">spa</span>
       <span>MindSupport Solutions</span>
     </div>
     <nav>
@@ -23,83 +167,53 @@
   </header>
 
   <main>
-    <div class="container">
-      <section class="solutions-intro">
-        <h1>Our IT Solutions</h1>
-        <p>
-          Using Information Systems to solve critical mental health challenges, we offer innovative and accessible tools to empower individuals and communities. Below, we outline our core solutions designed to address the identified problem.
-        </p>
-      </section>
+    <div class="solutions-intro">
+      <h1>Our IT Solutions</h1>
+      <p>We leverage Information Systems to address critical mental health challenges. Below are the innovative solutions we provide to empower users.</p>
+    </div>
 
-      <section class="solution-items">
-        <div class="solution-item">
-          <h2>Interactive Chatbot</h2>
-          <p>
-            A dynamic chatbot powered by natural language processing (NLP) provides immediate, confidential mental health support. The chatbot includes:
-          </p>
-          <ul>
-            <li>Stress management techniques.</li>
-            <li>Resources for coping with anxiety and depression.</li>
-            <li>24/7 response availability for urgent concerns.</li>
-          </ul>
-        </div>
-
-        <div class="solution-item">
-          <h2>Comprehensive Resource Hub</h2>
-          <p>
-            A centralized hub offers users links to critical external resources, such as:
-          </p>
-          <ul>
-            <li>National suicide prevention helplines.</li>
-            <li>Local counseling centers and hotlines.</li>
-            <li>Educational videos and articles about mental health.</li>
-          </ul>
-        </div>
-
-        <div class="solution-item">
-          <h2>Educational Content</h2>
-          <p>
-            To raise awareness about mental health, we provide:
-          </p>
-          <ul>
-            <li>Infographics explaining common mental health challenges.</li>
-            <li>Videos featuring professionals addressing coping strategies.</li>
-            <li>Personalized tips based on user input.</li>
-          </ul>
-        </div>
-
-        <div class="solution-item">
-          <h2>Integration with Social Media</h2>
-          <p>
-            To broaden the reach and encourage peer support, we connect users to:
-          </p>
-          <ul>
-            <li>Our Facebook group for discussions and shared experiences.</li>
-            <li>YouTube playlists for guided meditation and mental health talks.</li>
-            <li>Instagram accounts focused on daily motivational content.</li>
-          </ul>
-        </div>
-
-        <div class="solution-item">
-          <h2>Data Collection and Insights</h2>
-          <p>
-            Our platform uses analytics to identify common issues and trends in mental health, helping organizations:
-          </p>
-          <ul>
-            <li>Improve service delivery through real-time feedback.</li>
-            <li>Prioritize key problem areas based on user input.</li>
-          </ul>
-        </div>
-      </section>
+    <div class="solution-items">
+      <div class="solution-item">
+        <h2>Interactive Chatbot</h2>
+        <p>A smart chatbot provides real-time support for mental health challenges.</p>
+        <ul>
+          <li><span class="material-icons">check_circle</span> Stress management tips</li>
+          <li><span class="material-icons">check_circle</span> Resources for anxiety & depression</li>
+          <li><span class="material-icons">check_circle</span> 24/7 support availability</li>
+        </ul>
+      </div>
+      <div class="solution-item">
+        <h2>Resource Hub</h2>
+        <p>A centralized hub with curated links to critical mental health resources.</p>
+        <ul>
+          <li><span class="material-icons">link</span> National Helplines</li>
+          <li><span class="material-icons">link</span> Counseling centers</li>
+          <li><span class="material-icons">link</span> Educational materials</li>
+        </ul>
+      </div>
+      <div class="solution-item">
+        <h2>Educational Content</h2>
+        <p>We provide content to raise awareness and help users understand mental health better.</p>
+        <ul>
+          <li><span class="material-icons">school</span> Infographics</li>
+          <li><span class="material-icons">play_circle</span> Expert-led videos</li>
+          <li><span class="material-icons">tips_and_updates</span> Personalized tips</li>
+        </ul>
+      </div>
+      <div class="solution-item">
+        <h2>Social Media Integration</h2>
+        <p>Broaden our reach through social media platforms.</p>
+        <ul>
+          <li><span class="material-icons">facebook</span> Facebook groups</li>
+          <li><span class="material-icons">play_circle</span> YouTube content</li>
+          <li><span class="material-icons">camera_alt</span> Instagram campaigns</li>
+        </ul>
+      </div>
     </div>
   </main>
 
   <footer>
-    <p>
-      &copy; 2024 MindSupport. All rights reserved. <a href="https://www.facebook.com" target="_blank">Facebook</a> | 
-      <a href="https://www.youtube.com" target="_blank">YouTube</a> | 
-      <a href="https://www.instagram.com" target="_blank">Instagram</a>
-    </p>
+    &copy; 2024 MindSupport Solutions. <a href="#">Facebook</a> | <a href="#">YouTube</a> | <a href="#">Instagram</a>
   </footer>
 </body>
 </html>
