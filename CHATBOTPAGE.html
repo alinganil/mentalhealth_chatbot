@@ -9,10 +9,11 @@
   <style>
     :root {
       --primary-color: #7BCC3F;
-      --secondary-color: #F1F8EC;
-      --text-color: #000000;
+      --secondary-color: #E9F5E9;
+      --text-color: #333333;
       --white: #ffffff;
-      --background-color: #F7F7F7;
+      --background-color: #f7f7f7;
+      --footer-bg: #000000;
       --hover-bg: rgba(123, 204, 63, 0.2);
     }
 
@@ -22,6 +23,9 @@
       color: var(--text-color);
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     header {
@@ -63,147 +67,142 @@
       text-decoration: none;
       font-weight: bold;
       color: var(--primary-color);
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      font-size: 1.2rem;
+      border: 2px solid var(--primary-color);
+      padding: 5px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
     }
 
     nav a:hover {
-      background-color: var(--hover-bg);
-      transform: translateY(-3px);
-    }
-
-    nav a::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: -25px;
-      left: 50%;
-      transform: translateX(-50%);
       background-color: var(--primary-color);
       color: var(--white);
-      font-size: 0.8rem;
-      padding: 2px 8px;
-      border-radius: 4px;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    nav a:hover::after {
-      opacity: 1;
     }
 
     .container {
-      display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       gap: 20px;
       padding: 40px;
     }
 
-    .stats {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat h3 {
-      font-size: 1.8rem;
-      color: var(--primary-color);
-      margin: 0;
-    }
-
-    .stat p {
-      font-size: 1rem;
-      color: var(--text-color);
-    }
-
-    .chatbox {
-      display: flex;
-      flex-direction: column;
+    .stats, .quick-links, .personal-tips {
       background-color: var(--white);
       border-radius: 10px;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
+      padding: 20px;
+      width: 100%;
+      max-width: 350px;
+      text-align: center;
+    }
+
+    .stats h3, .quick-links h3, .personal-tips h3 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .stats .stat {
+      margin-bottom: 15px;
+    }
+
+    .stats .stat h3 {
+      font-size: 1.8rem;
+    }
+
+    .chatbox {
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
     }
 
     .chatbox-header {
       background-color: var(--primary-color);
       color: var(--white);
-      padding: 10px;
+      padding: 10px 20px;
       font-weight: bold;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      border-radius: 10px 10px 0 0;
     }
 
     .chatbox-body {
-      flex-grow: 1;
-      padding: 10px;
+      padding: 20px;
+      height: 300px;
+      overflow-y: auto;
+      background: var(--secondary-color);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
     .message {
-      margin: 10px 0;
+      padding: 10px 15px;
+      border-radius: 8px;
+      max-width: 75%;
+      word-wrap: break-word;
     }
 
     .message.user {
-      text-align: left;
+      align-self: flex-start;
+      background-color: var(--primary-color);
+      color: var(--white);
     }
 
     .message.support {
-      text-align: right;
-      color: var(--primary-color);
+      align-self: flex-end;
+      background-color: var(--white);
+      color: var(--text-color);
+      border: 1px solid #ddd;
     }
 
     .chatbox-footer {
       display: flex;
-      padding: 10px;
-      border-top: 1px solid #eee;
+      gap: 10px;
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 0 0 10px 10px;
     }
 
     .chatbox-footer input {
-      flex-grow: 1;
-      padding: 8px;
+      flex: 1;
+      padding: 10px;
       border: 1px solid #ddd;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 1rem;
     }
 
     .chatbox-footer button {
       background-color: var(--primary-color);
       color: var(--white);
+      padding: 10px 15px;
       border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
-      margin-left: 10px;
+      border-radius: 8px;
+      font-size: 1rem;
       cursor: pointer;
     }
 
-    .quick-links, .personal-tips {
-      background-color: var(--white);
-      border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-    }
-
-    .personal-tips h3, .quick-links h3 {
-      color: var(--primary-color);
-      margin-bottom: 10px;
-    }
-
     footer {
-      background-color: var(--text-color);
+      background-color: var(--footer-bg);
       color: var(--white);
       text-align: center;
-      padding: 10px;
+      padding: 15px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -214,16 +213,18 @@
     <span>MindSupport</span>
   </div>
   <nav>
-    <a href="index.html" data-tooltip="Home"><span class="material-icons">home</span></a>
-    <a href="team.html" data-tooltip="Team"><span class="material-icons">group</span></a>
-    <a href="problem.html" data-tooltip="Problem"><span class="material-icons">help_outline</span></a>
-    <a href="solutions.html" data-tooltip="Solutions"><span class="material-icons">lightbulb</span></a>
+    <a href="index.html">Home</a>
+    <a href="team.html">Team</a>
+    <a href="problem.html">Problem</a>
+    <a href="solutions.html">Solutions</a>
   </nav>
 </header>
+
 <main>
   <div class="container">
-    <!-- Left Sidebar (Stats) -->
-    <aside class="stats">
+    <!-- Stats Section -->
+    <div class="stats">
+      <h3>Stats</h3>
       <div class="stat">
         <h3>18.58 M</h3>
         <p>Total College Students in the U.S.</p>
@@ -240,38 +241,36 @@
         <h3>15%</h3>
         <p>Students Who Have Considered Suicide</p>
       </div>
-    </aside>
+    </div>
 
     <!-- Chatbox Section -->
-    <section class="chatbox">
+    <div class="chatbox">
       <div class="chatbox-header">
         <h3>Wildcat Self-Care</h3>
         <span>Online</span>
       </div>
       <div class="chatbox-body">
-        <div class="message user">
-          <p>Hello, I need some advice on managing my stress levels during exams.</p>
-        </div>
-        <div class="message support">
-          <p>Of course! Let’s explore some techniques that can help you stay calm and focused.</p>
-        </div>
+        <div class="message user">Hello, I need some advice on managing my stress levels during exams.</div>
+        <div class="message support">Of course! Let’s explore some techniques that can help you stay calm and focused.</div>
       </div>
       <div class="chatbox-footer">
         <input type="text" placeholder="Type your message...">
         <button>Send</button>
       </div>
-    </section>
+    </div>
 
-    <!-- Right Sidebar -->
-    <aside class="personal-tips">
+    <!-- Personal Tips Section -->
+    <div class="personal-tips">
       <h3>Personal Tips</h3>
       <p id="personal-tip">"Loading personalized tip..."</p>
-    </aside>
+    </div>
   </div>
 </main>
+
 <footer>
-  <p>Disclaimer: This project is for educational purposes only.</p>
+  <p>Disclaimer: This project is for educational purposes only. <a href="how-it-works.html">Learn More</a></p>
 </footer>
+
 <script>
   const personalTips = [
     "Take a 5-minute break every hour to stretch and relax.",
