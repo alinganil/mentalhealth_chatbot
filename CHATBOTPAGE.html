@@ -63,28 +63,41 @@
     }
 
     nav a {
-      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       text-decoration: none;
       font-weight: bold;
       color: var(--primary-color);
-      font-size: 1.2rem;
-      border: 2px solid var(--primary-color);
-      padding: 5px 15px;
-      border-radius: 8px;
+      padding: 5px 10px;
+      border-radius: 5px;
       transition: all 0.3s ease;
     }
 
     nav a:hover {
-      background-color: var(--primary-color);
-      color: var(--white);
+      background-color: var(--hover-bg);
+    }
+
+    nav a .material-icons {
+      font-size: 1.5rem;
+    }
+
+    nav a span {
+      display: none;
+      font-size: 1rem;
+    }
+
+    nav a:hover span {
+      display: inline;
     }
 
     .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
       gap: 20px;
       padding: 40px;
+      max-width: 1200px;
+      margin: auto;
     }
 
     .stats, .quick-links, .personal-tips {
@@ -92,8 +105,6 @@
       border-radius: 10px;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       padding: 20px;
-      width: 100%;
-      max-width: 350px;
       text-align: center;
     }
 
@@ -114,10 +125,9 @@
       background: var(--white);
       border-radius: 10px;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 600px;
       display: flex;
       flex-direction: column;
+      padding: 20px;
     }
 
     .chatbox-header {
@@ -125,8 +135,6 @@
       color: var(--white);
       padding: 10px 20px;
       font-weight: bold;
-      display: flex;
-      justify-content: space-between;
       border-radius: 10px 10px 0 0;
     }
 
@@ -213,10 +221,10 @@
     <span>MindSupport</span>
   </div>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="team.html">Team</a>
-    <a href="problem.html">Problem</a>
-    <a href="solutions.html">Solutions</a>
+    <a href="index.html"><span class="material-icons">home</span><span>Home</span></a>
+    <a href="team.html"><span class="material-icons">group</span><span>Team</span></a>
+    <a href="problem.html"><span class="material-icons">help_outline</span><span>Problem</span></a>
+    <a href="solutions.html"><span class="material-icons">lightbulb</span><span>Solutions</span></a>
   </nav>
 </header>
 
@@ -247,7 +255,6 @@
     <div class="chatbox">
       <div class="chatbox-header">
         <h3>Wildcat Self-Care</h3>
-        <span>Online</span>
       </div>
       <div class="chatbox-body">
         <div class="message user">Hello, I need some advice on managing my stress levels during exams.</div>
@@ -259,16 +266,31 @@
       </div>
     </div>
 
-    <!-- Personal Tips Section -->
-    <div class="personal-tips">
-      <h3>Personal Tips</h3>
-      <p id="personal-tip">"Loading personalized tip..."</p>
+    <!-- Personal Tips, Quick Links, and Motivation Section -->
+    <div>
+      <div class="personal-tips">
+        <h3>Personal Tips</h3>
+        <p id="personal-tip">"Loading personalized tip..."</p>
+      </div>
+      <div class="quick-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="https://988lifeline.org/" target="_blank">Emergency Contacts</a></li>
+          <li><a href="https://acu.edu/medical-and-counseling-care/" target="_blank">ACU Soar</a></li>
+          <li><a href="https://www.nimh.nih.gov/" target="_blank">NIMH Resources</a></li>
+          <li><a href="https://www.mentalhealth.gov/" target="_blank">MentalHealth.gov</a></li>
+        </ul>
+      </div>
+      <div class="personal-tips">
+        <h3>Motivation</h3>
+        <p>“Every day may not be good, but there’s something good in every day.”</p>
+      </div>
     </div>
   </div>
 </main>
 
 <footer>
-  <p>Disclaimer: This project is for educational purposes only. <a href="how-it-works.html">Learn More</a></p>
+  <p>Disclaimer: This project is for educational purposes only. <a href="#">Learn more</a></p>
 </footer>
 
 <script>
